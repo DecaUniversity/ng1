@@ -59,6 +59,9 @@ $zone-label-font-size: 30px;
 $zone-example-font-size: 20px;
 $zone-warning-font-size: 15px;
 
+$red-wine: #820002;
+$cherry-wine: #D1343A;
+
 br {
 	margin: 10px 0;
 	display: block;
@@ -71,7 +74,7 @@ br {
 	font-family: $racing-sans-one;
 	font-size: $banner-font-size;
 
-	background: darkred;
+	background: $red-wine;
 	
 	padding: $standard-padding;
 	
@@ -117,13 +120,13 @@ br {
 	
 	margin-top: 20px;
 	padding: $standard-padding;
-	border: solid 5px darkred;
+	border: solid 5px $red-wine;
 	
 	font-family: $oswald;
 	font-size: $zone-example-font-size;
 	
 	hr {
-		color: darkred;
+		color: $red-wine;
 		border-width: 4px;
 		border-color: inherit;
 	}
@@ -133,7 +136,7 @@ br {
 .zone-label {
 	
 	font-family: $racing-sans-one;
-	color: darkred;
+	color: $red-wine;
 	font-size: $zone-label-font-size;
 	
 }
@@ -141,7 +144,7 @@ br {
 .zone-example {
 	
 	color: white;
-	background: #D74141;
+	background: $cherry-wine;
 	
 	padding: $standard-padding;
 	margin: 10px 0;
@@ -179,9 +182,58 @@ br {
 	}
 }
 
-// Bootstrap overrides
+// Pane Experiment
 
-.nav-tabs > li > a {
-	color: black;
+.tab-bar {
+	
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: white;
+	}
+	
+	li {
+		float: left;
+		border-bottom: 5px solid $red-wine;
+	}
+	
+	li:first-child {
+		border-left: 5px solid $red-wine;
+	}
+	
+	li:last-child {
+		border-right: 5px solid $red-wine;
+	}
+	
+	li a {
+		display: block;
+		color: black;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-family: $space-mono;
+		
+	}
+	
+	li a:hover {
+		background: $cherry-wine;
+		color: white;
+	}
+	
 }
 
+li.activeTab {
+	background: $red-wine;
+	color: white;
+	
+	a {
+		color: white;
+	}
+	
+	a:hover {
+		background: $red-wine;
+	}
+	
+}

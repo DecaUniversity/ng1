@@ -7,7 +7,7 @@ const MyPaneController = function () {
 	ctrl.$onInit = function () {
 		
 		ctrl.tabsCtrl.addPane(this);
-		console.log(this);
+		console.log(`Adding ${this.title} ${this.selected} to Tabs`);
 		
 	}
 	

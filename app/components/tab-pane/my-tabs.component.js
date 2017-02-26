@@ -4,6 +4,7 @@ const MyTabsController = function () {
 	
 	const ctrl = this;
 	
+	// const panes = ctrl.panes = [];
 	const panes = ctrl.panes = [];
 	
 	/**
@@ -13,7 +14,6 @@ const MyTabsController = function () {
 	ctrl.select = function (pane) {
 		
 		// Unselect all panes
-		// TODO: Improve performance of this function
 		angular.forEach(panes, function (paneItem) {
 			
 			paneItem.selected = false;
@@ -36,6 +36,8 @@ const MyTabsController = function () {
 		if (panes.length === 0) {
 			
 			ctrl.select(pane);
+			
+			console.log(pane);
 			
 		}
 		
