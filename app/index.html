@@ -119,10 +119,30 @@
 					<hero-list></hero-list>
 				</zone-example>
 				
+				<zone-example>
+					
+					<zone-example-note>
+						Directives can require the controllers of other directives to enable cross-directive communication. This is achieved through the <b>require</b> property which creates an object mapping between a property key (local required controller name) and property value (name of component with the required controllers)
+						<br>
+						Note that the required controllers will not be available during the instantiation of the controller, but they are guaranteed to be available just before the $onInit method is executed!
+					</zone-example-note>
+					
+					<br>
+					
+					<my-tabs>
+						<my-pane title="Heroes">
+							<p>Heroes are awesome.</p>
+						</my-pane>
+						<my-pane title="Villains">
+							<p>Villains are awful.</p>
+						</my-pane>
+						<my-pane title="Side Kicks">
+							<p>Side Kicks are helpful.</p>
+						</my-pane>
+					</my-tabs>
+				</zone-example>
+				
 			</zone>
-			
-			
-			
 			
 		</div>
 		
@@ -131,6 +151,8 @@
 		<script src="dist/src/app.controller.js"></script>
 		<script src="dist/src/controllers/controllers.controller.js"></script>
 		<script src="dist/src/components/hero/hero.component.js"></script>
+		<script src="dist/src/components/tab-pane/my-pane.component.js"></script>
+		<script src="dist/src/components/tab-pane/my-tabs.component.js"></script>
 		<script src="dist/src/components/hero_tree/editableField.component.js"></script>
 		<script src="dist/src/components/hero_tree/heroDetail.component.js"></script>
 		<script src="dist/src/components/hero_tree/heroList.component.js"></script>

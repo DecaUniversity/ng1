@@ -35,12 +35,13 @@
         "one-var": ["error", "never"],
         "max-statements": ["error", 20],
         "dot-location": ["error", "property"],
-        "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
+        "prefer-arrow-callback": 0,
         "func-names": 0,
         "sort-keys": 0,
         "no-magic-numbers": ["error", {"ignore": [0, 1]}],
         "require-jsdoc": 0,
         "valid-jsdoc": 0,
-        "consistent-this": 0
+        "consistent-this": 0,
+        "no-unused-vars": 0
     }
 }
