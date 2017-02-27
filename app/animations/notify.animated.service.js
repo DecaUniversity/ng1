@@ -19,19 +19,13 @@ angular.module("app")
 			
 			const processMsgHelper = function (message, messageImg) {
 				
-				console.log(`Processing... ${message}`);
-				
 				// There are no chants. There is no previous message
 				// Make current chant the previous message.
 				if (rite.chants.length === 0) {
 					
-					console.log(`There is no existing chant combo.`);
-					
 					rite.chants.push(message);
 					rite.image = messageImg;
 					previousChant = rite.chants[0];
-					
-					console.log(`Service rite: ${JSON.stringify(rite)}`);
 					
 				} else {
 					
@@ -40,21 +34,14 @@ angular.module("app")
 					// image to appear.
 					if (previousChant === message) {
 						
-						console.log(`Combo! `);
-						
 						rite.chants.push(message);
 						rite.image = messageImg;
 						previousChant = message;
-						
-						console.log(`Service rite: ${JSON.stringify(rite)}`);
-						
 						
 					} else {
 						
 						// The previous chant is different than the current one.
 						// The combo is broken.
-						
-						console.log(`COMBO BREAKER!!!!`);
 						
 						reset();
 						
@@ -64,8 +51,6 @@ angular.module("app")
 						rite.chants.push(message);
 						rite.image = messageImg;
 						previousChant = message;
-						
-						console.log(`Service rite: ${JSON.stringify(rite)}`);
 						
 					}
 					
@@ -112,34 +97,19 @@ angular.module("app")
 				
 				if (rite.chants.length === maxChants) {
 					
-					console.log(`Max Chants reached! INVOKE!!!!`);
-					
 					rite.complete = true;
-					console.log(`Service rite: ${JSON.stringify(rite)}`);
 					
-				} else if (rite.chants.length > maxChants) {
-					console.log("Max chants reached.");
 				}
-				
-				// console.log(`(OUT) Chant count : ${rite.chants.length}`);
 				
 			};
 			
 			const reset = function () {
-				
-				console.log(`Resetting set.`);
-				
-				// for (let i = rite.chants.length; i > 0; i--) {
-				// 	rite.chants.pop();
-				// }
 				
 				rite.chants.length = 0;
 				
 				rite.complete = false;
 				rite.image = "";
 				previousChant = "";
-				
-				console.log(`Service rite: ${JSON.stringify(rite)}`);
 				
 			};
 			
