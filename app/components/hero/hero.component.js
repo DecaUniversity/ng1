@@ -1,6 +1,6 @@
 "use strict";
 
-const HeroDetailController = function () {
+const HeroController = function () {
 	
 	// Controller details
 	
@@ -9,7 +9,7 @@ const HeroDetailController = function () {
 angular.module("app")
 	.component("hero", {
 		bindings: {hero: "@"},
-		controller: HeroDetailController,
+		controller: HeroController,
 		templateUrl: "/components/hero/hero.html"
 		
 	});

@@ -31,15 +31,15 @@ const HeroDetailController = function () {
 		
 		switch (value) {
 			
-		case "Seattle":
-			ctrl.location = "Starbucks City";
-			break;
-		case "Las Vegas":
-			ctrl.location = "Sin City";
-			break;
-		default:
-			ctrl.location = value;
-			break;
+			case "Seattle":
+				ctrl.location = "Starbucks City";
+				break;
+			case "Las Vegas":
+				ctrl.location = "Sin City";
+				break;
+			default:
+				ctrl.location = value;
+				break;
 				
 		}
 		
