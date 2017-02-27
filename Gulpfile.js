@@ -1,9 +1,9 @@
 "use strict";
 
+
 const gulp = require('gulp');
 const injector = require('gulp-inject');
 const browserSync = require('browser-sync').create();
-const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const eslint = require('gulp-eslint');
@@ -17,26 +17,6 @@ gulp.task('sass', function() {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('lint', () => {
-	return gulp.src(['!app/lib', '!app/lib/**',
-			'!app/dist', '!app/dist/**', 'app/**/*.js'])
-		.pipe(eslint())
-		.pipe(eslint.format())
-		.pipe(eslint.failAfterError());
-});
-
-// Uncomment concat pipe to unable universal concatenation
-gulp.task('transpile', () => {
-	return gulp.src(['!app/lib', '!app/lib/**',
-			'!app/dist', '!app/dist/**', 'app/**/*.js'])
-		.pipe(sourcemaps.init())
-		.pipe(babel())
-		// .pipe(concat("compiled_source.js"))
-		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest("app/dist/src", {
-			overwrite: true
-		}))
-});
 
 gulp.task('inject', () => {
 	let wiredep = require('wiredep').stream;
@@ -56,24 +36,25 @@ gulp.task('inject', () => {
 	// });
 	
 	let injectSrc = gulp.src([
-		'app/dist/styles/**/*.css',
-		'app/dist/src/app.js',
-		'app/dist/src/**/*module.js',
-		'app/dist/src/**/*constants.js',
-		'app/dist/src/**/*provider.js',
-		'app/dist/src/**/*enum.js',
-		'app/dist/src/**/*model.js',
-		'app/dist/src/**/*config.js',
-		'app/dist/src/**/*filter.js',
-		'app/dist/src/**/*directive.js',
-		'app/dist/src/**/*decorator.js',
-		'app/dist/src/**/*interceptor.js',
-		'app/dist/src/**/*service.js',
-		'app/dist/src/**/*workflow.js',
-		'app/dist/src/**/*repository.js',
-		'app/dist/src/**/*resolver.js',
-		'app/dist/src/**/*controller.js',
-		'app/dist/src/**/**.js'], {
+		'!app/lib/', '!app/lib/**',
+		'app/styles/**/*.css',
+		'app/app.js',
+		'app/**/*module.js',
+		'app/**/*constants.js',
+		'app/**/*provider.js',
+		'app/**/*enum.js',
+		'app/**/*model.js',
+		'app/**/*config.js',
+		'app/**/*filter.js',
+		'app/**/*directive.js',
+		'app/**/*decorator.js',
+		'app/**/*interceptor.js',
+		'app/**/*service.js',
+		'app/**/*workflow.js',
+		'app/**/*repository.js',
+		'app/**/*resolver.js',
+		'app/**/*controller.js',
+		'app/**/**.js'], {
 		read: false,
 	});
 	
@@ -83,7 +64,11 @@ gulp.task('inject', () => {
 	pipe(gulp.dest('app'));
 });
 
-gulp.task('js-watch', ['lint', 'transpile', 'inject'], () => {
+// gulp.task('js-watch', ['lint', 'transpile', 'inject'], () => {
+// 	browserSync.reload();
+// });
+
+gulp.task('js-watch', ['inject'], () => {
 	browserSync.reload();
 });
 
@@ -105,4 +90,4 @@ gulp.task('serve', () => {
 	
 });
 
-gulp.task('default', ['sass', 'lint', 'transpile', 'inject', 'serve']);
+gulp.task('default', ['sass', 'inject', 'serve']);
