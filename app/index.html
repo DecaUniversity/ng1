@@ -172,7 +172,7 @@
 						<zone-example>
 							<div id="simple"
 							     ng-controller="AnimatedServiceSampleController">
-								<p>Let's try this simple notify service, injected into the controller...</p>
+								<p>Let's try this animated notify service, injected into the controller...</p>
 								<p>Click 3 times.</p>
 								<!-- Chant Buttons bar -->
 								<div class="io-bar"
@@ -203,17 +203,15 @@
 									</button>
 								</div>
 								
-								<div class="io-bar" ng-show="showChants">
+								<div class="io-bar">
 									<button class="chant-button repeated-item"
 									        ng-repeat="chant in ritual.chants track by $index">
 										{{chant}}
 									</button>
 								</div>
 								
-								{{ritual.image}}
-								
 								<div class="ritual-result">
-									<img class="riteImg"
+									<img class="riteImg sample-show-hide"
 									     ng-show="showImg"
 									     ng-src="{{ritual.image}}">
 								</div>
@@ -237,15 +235,15 @@
 		<script src="animations/animatedServiceSample.controller.js"></script>
 		<script src="controllers/controllers.controller.js"></script>
 		<script src="components/hero/hero.component.js"></script>
-		<script src="components/zone/zone-example-note.js"></script>
-		<script src="components/zone/zone-example.component.js"></script>
-		<script src="components/zone/zone-warning.js"></script>
-		<script src="components/zone/zone.component.js"></script>
 		<script src="components/hero_tree/editableField.component.js"></script>
 		<script src="components/hero_tree/heroDetail.component.js"></script>
 		<script src="components/hero_tree/heroList.component.js"></script>
 		<script src="components/tab-pane/my-pane.component.js"></script>
 		<script src="components/tab-pane/my-tabs.component.js"></script>
+		<script src="components/zone/zone-example-note.js"></script>
+		<script src="components/zone/zone-example.component.js"></script>
+		<script src="components/zone/zone-warning.js"></script>
+		<script src="components/zone/zone.component.js"></script>
 		<!-- endinject -->
 		
 	</body>
