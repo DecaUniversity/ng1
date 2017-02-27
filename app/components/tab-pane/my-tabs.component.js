@@ -20,6 +20,8 @@ const MyTabsController = function () {
 			
 		});
 		
+		console.log(`Making ${pane.title} selected!`);
+		
 		// Select the passed pane
 		pane.selected = true;
 		
@@ -31,13 +33,20 @@ const MyTabsController = function () {
 	 */
 	ctrl.addPane = function (pane) {
 		
+		// Select latest pane for faster testing
+		const preLast = 3;
+		
 		// If there are no panes, select the new pane so that there is
 		// always at least one active pane.
 		if (panes.length === 0) {
 			
-			ctrl.select(pane);
+			// ctrl.select(pane);
 			
 			console.log(pane);
+			
+		} else if (panes.length === preLast) {
+			
+			ctrl.select(pane);
 			
 		}
 		
