@@ -7,9 +7,8 @@ const MyPaneController = function () {
 	ctrl.$onInit = function () {
 		
 		ctrl.tabsCtrl.addPane(this);
-		console.log(`Adding ${this.title} ${this.selected} to Tabs`);
 		
-	}
+	};
 	
 };
 
@@ -19,7 +18,5 @@ angular.module("app")
 		bindings: {title: "@"},
 		templateUrl: "/components/tab-pane/my-pane.html",
 		controller: MyPaneController,
-		require: {
-			tabsCtrl: "^myTabs"
-		}
+		require: {tabsCtrl: "^myTabs"}
 	});
