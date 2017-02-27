@@ -14,6 +14,7 @@
 		<script src="lib/angular/angular.js"></script>
 		<script src="lib/jquery/dist/jquery.js"></script>
 		<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="lib/angular-animate/angular-animate.js"></script>
 		<!-- endbower -->
 		
 		<!-- bower:css -->
@@ -21,6 +22,7 @@
 		<!-- endbower -->
 		
 		<!-- inject:css -->
+		<link rel="stylesheet" href="dist/styles/animation.css">
 		<link rel="stylesheet" href="dist/styles/main.css">
 		<!-- endinject -->
 		
@@ -134,17 +136,8 @@
 							
 							<br>
 							
-							<!--<my-tabs>-->
-								<!--<my-pane title="Heroes">-->
-									<!--<p>Heroes are awesome.</p>-->
-								<!--</my-pane>-->
-								<!--<my-pane title="Villains">-->
-									<!--<p>Villains are awful.</p>-->
-								<!--</my-pane>-->
-								<!--<my-pane title="Side Kicks">-->
-									<!--<p>Side Kicks are helpful.</p>-->
-								<!--</my-pane>-->
-							<!--</my-tabs>-->
+							The navigation bar on this page uses this component configuration to achieve a single page application architecture.
+						
 						</zone-example>
 					
 					</zone>
@@ -152,8 +145,84 @@
 				
 				<my-pane title=".service()">
 					<zone zone-label="Services">
-					
+						<zone-example>
+							<div ng-controller="ServiceSampleController">
+								
+								<div class="io-bar">
+									<input ng-model="message" >
+									<button
+											class="bang-button"
+											ng-click="callNotify(message);">
+										NOTIFY
+									</button>
+								</div>
+								
+								<p>Let's try this simple notify service, injected into the controller...</p>
+								
+								<p>(you have to click 3 times to see an alert)</p>
+								
+								
+							</div>
+						</zone-example>
 					</zone>
+				</my-pane>
+				
+				<my-pane title="ngAnimate">
+					<zone zone-label="Animations">
+						<zone-example>
+							<div id="simple"
+							     ng-controller="AnimatedServiceSampleController">
+								<p>Let's try this simple notify service, injected into the controller...</p>
+								<p>Click 3 times.</p>
+								<!-- Chant Buttons bar -->
+								<div class="io-bar"
+								     ng-if="showChantButtons">
+									<button
+											class="bang-button"
+											ng-click="callNotify('Bloody Mary');">
+										BLOODY MARY
+									</button>
+									<button
+											class="bang-button"
+											ng-click="callNotify('Thunder');">
+										THUNDER
+									</button>
+									<button
+											class="bang-button"
+											ng-click="callNotify('Bettlejuice');">
+										BEETLEJUICE
+									</button>
+								</div>
+								<!-- Reset Button bar-->
+								<div class="io-bar"
+								     ng-if="!showChantButtons">
+									<button
+											class="bang-button"
+											ng-click="reset();">
+										RESET
+									</button>
+								</div>
+								
+								<div class="io-bar" ng-show="showChants">
+									<button class="chant-button repeated-item"
+									        ng-repeat="chant in ritual.chants track by $index">
+										{{chant}}
+									</button>
+								</div>
+								
+								{{ritual.image}}
+								
+								<div class="ritual-result">
+									<img class="riteImg"
+									     ng-show="showImg"
+									     ng-src="{{ritual.image}}">
+								</div>
+							
+							
+							</div>
+						</zone-example>
+					</zone>
+				
 				</my-pane>
 				
 			</my-tabs>
@@ -161,19 +230,22 @@
 		</div>
 		
 		<!-- inject:js -->
-		<script src="dist/src/app.js"></script>
-		<script src="dist/src/app.controller.js"></script>
-		<script src="dist/src/controllers/controllers.controller.js"></script>
-		<script src="dist/src/components/hero/hero.component.js"></script>
-		<script src="dist/src/components/hero_tree/editableField.component.js"></script>
-		<script src="dist/src/components/hero_tree/heroDetail.component.js"></script>
-		<script src="dist/src/components/hero_tree/heroList.component.js"></script>
-		<script src="dist/src/components/tab-pane/my-pane.component.js"></script>
-		<script src="dist/src/components/tab-pane/my-tabs.component.js"></script>
-		<script src="dist/src/components/zone/zone-example-note.js"></script>
-		<script src="dist/src/components/zone/zone-example.component.js"></script>
-		<script src="dist/src/components/zone/zone-warning.js"></script>
-		<script src="dist/src/components/zone/zone.component.js"></script>
+		<script src="app.js"></script>
+		<script src="animations/notify.animated.service.js"></script>
+		<script src="services/notify.service.js"></script>
+		<script src="app.controller.js"></script>
+		<script src="animations/animatedServiceSample.controller.js"></script>
+		<script src="controllers/controllers.controller.js"></script>
+		<script src="components/hero/hero.component.js"></script>
+		<script src="components/zone/zone-example-note.js"></script>
+		<script src="components/zone/zone-example.component.js"></script>
+		<script src="components/zone/zone-warning.js"></script>
+		<script src="components/zone/zone.component.js"></script>
+		<script src="components/hero_tree/editableField.component.js"></script>
+		<script src="components/hero_tree/heroDetail.component.js"></script>
+		<script src="components/hero_tree/heroList.component.js"></script>
+		<script src="components/tab-pane/my-pane.component.js"></script>
+		<script src="components/tab-pane/my-tabs.component.js"></script>
 		<!-- endinject -->
 		
 	</body>
