@@ -34,7 +34,7 @@ const MyTabsController = function () {
 	ctrl.addPane = function (pane) {
 		
 		// Select latest pane for faster testing
-		const preLast = 3;
+		const preLast = 1;
 		
 		// If there are no panes, select the new pane so that there is
 		// always at least one active pane.
