@@ -10,7 +10,6 @@ const eslint = require('gulp-eslint');
 const gutil = require('gulp-util');
 const sass = require('gulp-sass');
 const runSequence = require('run-sequence');
-const sort = require('gulp-sort');
 
 // Compiles SCSS files
 gulp.task('sass', function() {
@@ -72,6 +71,7 @@ gulp.task('inject', () => {
 		'app/**/*repository.js',
 		'app/**/*resolver.js',
 		'app/**/*controller.js',
+		'app/**/*component.js',
 		'app/**/**.js'], {
 		read: false,
 	});
@@ -79,7 +79,6 @@ gulp.task('inject', () => {
 	return gulp.src('app/*.html').
 		pipe(wiredep(options)).
 		pipe(injector(injectSrc, injectOptions)).
-		pipe(sort()).
 		pipe(gulp.dest('app'));
 });
 
