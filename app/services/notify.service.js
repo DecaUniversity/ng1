@@ -1,18 +1,17 @@
 "use strict";
 
-angular.module("app")
-	.controller("ServiceSampleController",
-		["$scope", "notify", function ($scope, notify) {
+angular.module("app").controller("ServiceSampleController",
+	["$scope", "notify", function ($scope, notify) {
+	
+		$scope.message = "enter message here";
 		
-			$scope.message = "enter message here";
+		$scope.callNotify = function (msg) {
 			
-			$scope.callNotify = function (msg) {
-				
-				notify(msg);
-				
-			};
+			notify(msg);
 			
-		}]);
+		};
+		
+	}]);
 
 angular.module("app")
 	.factory("notify", ["$window", function (win) {

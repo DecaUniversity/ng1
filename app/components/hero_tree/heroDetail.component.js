@@ -4,9 +4,6 @@ const HeroDetailController = function () {
 	
 	const ctrl = this;
 	
-	// ctrl.location = "Default Location";
-	// ctrl.location = ctrl.hero.location;
-	
 	ctrl.$onInit = function () {
 		
 		ctrl.location = ctrl.hero.location;
@@ -27,8 +24,6 @@ const HeroDetailController = function () {
 		
 		console.log(`params: prop=${prop}, value=${value}`);
 		
-		// ctrl.hero.location = value;
-		
 		switch (value) {
 			
 			case "Seattle":
@@ -42,11 +37,6 @@ const HeroDetailController = function () {
 				break;
 				
 		}
-		
-		// ctrl.hero = {
-		// 	name: ctrl.hero.name,
-		// 	location: ctrl.location
-		// };
 		
 		ctrl.onUpdate({
 			hero: ctrl.hero,
