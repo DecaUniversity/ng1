@@ -4,42 +4,42 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Push Recipe Test UI</title>
-		
+
 		<link href="https://fonts.googleapis.com/css?family=Oswald|Racing+Sans+One|Roboto|Space+Mono:400,700|Work+Sans:500" rel="stylesheet">
-		
+
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 		      rel="stylesheet">
-		
+
 		<!-- bower:js-->
 		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular-animate/angular-animate.js"></script>
 		<script src="lib/jquery/dist/jquery.js"></script>
 		<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-		<script src="lib/angular-animate/angular-animate.js"></script>
 		<!-- endbower -->
-		
+
 		<!-- bower:css -->
 		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
 		<!-- endbower -->
-		
+
 		<!-- inject:css -->
 		<link rel="stylesheet" href="dist/styles/animation.css">
 		<link rel="stylesheet" href="dist/styles/main.css">
 		<!-- endinject -->
-		
+
 	</head>
 	<body>
 		<div class="container" ng-controller="MainController">
-			
+
 			<h1 class="area-label">NG-1</h1>
-			
+
 			<my-tabs>
-				
+
 				<ng-include ng-repeat="pane in panes" src="pane"></ng-include>
-				
+
 			</my-tabs>
-			
+
 		</div>
-		
+
 		<!-- inject:js -->
 		<script src="app.js"></script>
 		<script src="animations/notify.animated.service.js"></script>
@@ -48,17 +48,17 @@
 		<script src="animations/animatedServiceSample.controller.js"></script>
 		<script src="controllers/controllers.controller.js"></script>
 		<script src="services/converstion.controller.js"></script>
-		<script src="components/hero/hero.component.js"></script>
 		<script src="components/hero_tree/editableField.component.js"></script>
 		<script src="components/hero_tree/heroDetail.component.js"></script>
 		<script src="components/hero_tree/heroList.component.js"></script>
+		<script src="components/hero/hero.component.js"></script>
+		<script src="components/tab-pane/my-pane.component.js"></script>
+		<script src="components/tab-pane/my-tabs.component.js"></script>
 		<script src="components/zone/zone-example-note.js"></script>
 		<script src="components/zone/zone-example.component.js"></script>
 		<script src="components/zone/zone-warning.js"></script>
 		<script src="components/zone/zone.component.js"></script>
-		<script src="components/tab-pane/my-pane.component.js"></script>
-		<script src="components/tab-pane/my-tabs.component.js"></script>
 		<!-- endinject -->
-		
+
 	</body>
 </html>
