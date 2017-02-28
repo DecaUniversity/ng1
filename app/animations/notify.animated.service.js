@@ -4,7 +4,7 @@ angular.module("app")
 	.factory("notifyAnimated",
 		["$window", "$timeout", function (win, $timeout) {
 			
-			let rite = {
+			const rite = {
 				chants: [],
 				image: "",
 				complete: false
@@ -18,6 +18,16 @@ angular.module("app")
 			const bettlejuiceImg = "/animations/beetlejuice.gif";
 			const shameImg = "/animations/shame.gif";
 			
+			const reset = function () {
+				
+				rite.chants.length = 0;
+				
+				rite.complete = false;
+				rite.image = "";
+				previousChant = "";
+				
+			};
+			
 			const processMsgHelper = function (message, messageImg) {
 				
 				// There are no chants. There is no previous message
@@ -28,7 +38,7 @@ angular.module("app")
 					rite.image = messageImg;
 					previousChant = rite.chants[0];
 					
-				} else {
+				} else if (rite.chants.length > 0) {
 					
 					// Verify if there is a sequence of three chants.
 					// Three equal consecutive chants are required for the
@@ -107,16 +117,6 @@ angular.module("app")
 					rite.complete = true;
 					
 				}
-				
-			};
-			
-			const reset = function () {
-				
-				rite.chants.length = 0;
-				
-				rite.complete = false;
-				rite.image = "";
-				previousChant = "";
 				
 			};
 			

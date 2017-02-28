@@ -17,6 +17,7 @@ angular.module("app")
 				
 				$scope.showChantButtons = true;
 				$scope.showImg = false;
+				
 			};
 			
 			
