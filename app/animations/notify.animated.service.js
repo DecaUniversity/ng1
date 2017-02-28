@@ -16,6 +16,7 @@ angular.module("app")
 			const bloodyMaryImg = "/animations/bloody-mary.jpg";
 			const thundercatsImg = "/animations/thundercats.gif";
 			const bettlejuiceImg = "/animations/beetlejuice.gif";
+			const shameImg = "/animations/shame.gif";
 			
 			const processMsgHelper = function (message, messageImg) {
 				
@@ -86,6 +87,12 @@ angular.module("app")
 						case "Bettlejuice":
 							
 							processMsgHelper(msg, bettlejuiceImg);
+							
+							break;
+						
+						case "Shame":
+							
+							processMsgHelper(msg, shameImg);
 							
 							break;
 							
