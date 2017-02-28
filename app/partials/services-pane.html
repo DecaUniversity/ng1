@@ -19,5 +19,22 @@
 			
 			</div>
 		</zone-example>
+		
+		<zone-example>
+			<p>Converts a decimal number to a binary number. Only works for positive integers.</p>
+			<p>Feel free to try to break the tool by using invalid input.</p>
+			<div class="io-bar" ng-controller="ConversionController">
+				<label>
+					Decimal:
+					<input ng-model="decimalNumber">
+				</label>
+				
+				<label>
+					Binary:
+					<input disabled ng-model="binaryNumber">
+				</label>
+			</div>
+		</zone-example>
+		
 	</zone>
 </my-pane>
