@@ -38,8 +38,11 @@ const EditableFieldController = function ($scope, $element, $attrs) {
 		// Set a default fieldType
 		if (!ctrl.fieldType) {
 			
-			// For any changes to this variable to be shown, the browser
-			// must be refreshed.
+			/**
+			 * For any changes to this variable to be shown,
+			 * the browser must be refreshed.
+			 */
+			
 			ctrl.fieldType = "text";
 			
 		}

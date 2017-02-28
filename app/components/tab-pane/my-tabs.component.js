@@ -4,8 +4,9 @@ const MyTabsController = function () {
 	
 	const ctrl = this;
 	
-	// const panes = ctrl.panes = [];
-	const panes = ctrl.panes = [];
+	const panes = [];
+	
+	ctrl.panes = panes;
 	
 	/**
 	 * Select a pane
@@ -34,13 +35,22 @@ const MyTabsController = function () {
 	ctrl.addPane = function (pane) {
 		
 		// Select latest pane for faster testing
+		
 		const preLast = 1;
 		
-		// If there are no panes, select the new pane so that there is
-		// always at least one active pane.
+		/**
+		 * If there are no panes, select the new pane so that there is
+		 * always at least one active pane.
+		 */
+		
 		if (panes.length === 0) {
 			
-			// ctrl.select(pane);
+			/**
+			 * Uncomment to restore first pane being selected by default
+			 * Keep using while on testing
+			 * ctrl.select(pane);
+			 */
+			
 			
 			console.log(pane);
 			

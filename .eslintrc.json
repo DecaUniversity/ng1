@@ -15,7 +15,10 @@
         "indent": [
             "error",
             "tab",
-            {"SwitchCase": 1 }
+            {
+                "SwitchCase": 1,
+                "MemberExpression": 1
+            }
         ],
         "linebreak-style": [
             "error",
@@ -44,6 +47,7 @@
         "valid-jsdoc": 0,
         "consistent-this": 0,
         "no-unused-vars": 0,
-        "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}]
+        "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
+        "prefer-destructuring": 0
     }
 }
