@@ -1,4 +1,4 @@
-### NG1: An angular exploration
+### NG1: An Angular exploration
 
 This single page application is an exercise to experiment with the different modules and features that AngularJS 1.6 has to offer.
 
