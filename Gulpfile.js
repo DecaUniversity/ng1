@@ -9,9 +9,6 @@ const concat = require('gulp-concat');
 const eslint = require('gulp-eslint');
 const gutil = require('gulp-util');
 const sass = require('gulp-sass');
-
-// Gulp Experiment
-// Add runSequence to run tasks sequentially
 const runSequence = require('run-sequence');
 
 // Compiles SCSS files
@@ -37,24 +34,6 @@ gulp.task('lint', () => {
 		// .pipe(eslint.failAfterError());
 });
 
-// PROBLEMATIC TASK that makes js-watch task run many times within the same file save
-// Transpiles ES6 to ES5 (... to support Safari mobile and Safari < 10 ... )
-// Uncomment concat pipe to unable universal concatenation
-gulp.task('transpile', () => {
-
-	gutil.log("task transpile");
-
-	return gulp.src(['!app/lib', '!app/lib/**',
-			'!app/dist', '!app/dist/**', '!app/dist', 'app/**/*.js'])
-		.pipe(sourcemaps.init())
-		.pipe(babel())
-		// .pipe(concat("compiled_source.js"))
-		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest("app/dist/src", {
-			overwrite: true
-		}))
-});
-
 // Inject JS files into the index.html (SPA model) in the right order that makes
 // sense for an Angular app.
 gulp.task('inject', () => {
@@ -73,34 +52,6 @@ gulp.task('inject', () => {
 		addRootSlash: false
 	};
 
-	// let injectSrc = gulp.src(['!app/lib/', '!app/lib/**', 'app/**/*.css', 'app/**/**.js'], {
-	// 	read: false,
-	// });
-
-	// The following are used when injected transpiled JS files that have been placed in dist/src
-	// let injectSrc = gulp.src([
-	// 	'app/dist/styles/**/*.css',
-	// 	'app/dist/src/app.js',
-	// 	'app/dist/src/**/*module.js',
-	// 	'app/dist/src/**/*constants.js',
-	// 	'app/dist/src/**/*provider.js',
-	// 	'app/dist/src/**/*enum.js',
-	// 	'app/dist/src/**/*model.js',
-	// 	'app/dist/src/**/*config.js',
-	// 	'app/dist/src/**/*filter.js',
-	// 	'app/dist/src/**/*directive.js',
-	// 	'app/dist/src/**/*decorator.js',
-	// 	'app/dist/src/**/*interceptor.js',
-	// 	'app/dist/src/**/*service.js',
-	// 	'app/dist/src/**/*workflow.js',
-	// 	'app/dist/src/**/*repository.js',
-	// 	'app/dist/src/**/*resolver.js',
-	// 	'app/dist/src/**/*controller.js',
-	// 	'app/dist/src/**/**.js'], {
-	// 	read: false,
-	// });
-	
-	// Since Transpilation is problematic, ES6 files are getting injected into index.html
 	let injectSrc = gulp.src([
 		'!app/lib', '!app/lib/**', "!app/dist", "!app/dist/**",
 		'app/css/**/*.css',
@@ -138,9 +89,6 @@ gulp.task('js-watch', (done) => {
 		done();
 	});
 	
-	// no need to reload here since html-watch will run as new JS files are injected
-	// it touches index.html
-	// browserSync.reload();
 });
 
 // Task that runs when .html files are changed
@@ -179,7 +127,5 @@ gulp.task("init", function (done) {
 
 });
 
-// Not running these tasks in parallel anymore
-// gulp.task('default', ['sass', 'lint', 'transpile', 'inject', 'serve']);
-// Replaced then with an init task that runs tasks synchronously
+
 gulp.task('default', ['init']);
