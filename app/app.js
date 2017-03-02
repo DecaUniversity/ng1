@@ -2,7 +2,7 @@
 
 "use strict";
 
-angular.module("app", ["ngAnimate"])
+angular.module("app", ["ngAnimate", "scopeExample"])
 	
 	/**
 	 * Services can also be registered via the $provide services
