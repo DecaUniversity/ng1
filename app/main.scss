@@ -69,15 +69,15 @@ br {
 }
 
 .area-label {
-	
+
 	color: white;
 	font-family: $racing-sans-one;
 	font-size: $banner-font-size;
 
 	background: $red-wine;
-	
+
 	padding: $standard-padding;
-	
+
 }
 
 .io-bar {
@@ -161,10 +161,10 @@ br {
 	
 	color: white;
 	background: $cherry-wine;
-	
+
 	padding: $standard-padding;
 	margin: 10px 0;
-	
+
 	p, span {
 		margin-top: 10px;
 		line-height: 35px;
@@ -322,4 +322,15 @@ li.activeTab {
 
 .embedVideo {
 	padding: 10px;
+}
+
+
+.person {
+	background: #8B4513	;
+	width: 240px;
+	height: 240px;
+	
+	padding: 10px;
+	border-radius: 20px;
+	
 }
