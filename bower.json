@@ -11,14 +11,6 @@
     "angular": "^1.5.8",
     "angular-animate": "^1.6.2"
   },
-  "overrides": {
-    "bootstrap": {
-      "main": [
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
-      ]
-    }
-  },
   "version": "1.0.0",
   "author": "DecaHub"
 }
