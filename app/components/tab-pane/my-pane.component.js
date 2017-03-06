@@ -16,7 +16,7 @@ angular.module("app")
 	.component("myPane", {
 		transclude: true,
 		bindings: {title: "@"},
-		templateUrl: "/components/tab-pane/my-pane.html",
+		templateUrl: "components/tab-pane/my-pane.html",
 		controller: MyPaneController,
 		require: {tabsCtrl: "^myTabs"}
 	});

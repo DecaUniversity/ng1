@@ -8,7 +8,7 @@ const ZoneWarningController = function () {
 
 angular.module("app")
 	.component("zoneWarning", {
-		templateUrl: "/components/zone/zone-warning.html",
+		templateUrl: "components/zone/zone-warning.html",
 		controller: ZoneWarningController,
 		transclude: true
 	});

@@ -51,7 +51,7 @@ const HeroDetailController = function () {
 angular.module("app")
 	.component("heroDetail", {
 		
-		templateUrl: "/components/hero_tree/heroDetail.html",
+		templateUrl: "components/hero_tree/heroDetail.html",
 		controller: HeroDetailController,
 		bindings: {
 			hero: "<",
