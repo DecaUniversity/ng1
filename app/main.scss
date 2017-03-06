@@ -69,15 +69,15 @@ br {
 }
 
 .area-label {
-	
+
 	color: white;
 	font-family: $racing-sans-one;
 	font-size: $banner-font-size;
 
 	background: $red-wine;
-	
+
 	padding: $standard-padding;
-	
+
 }
 
 .io-bar {
@@ -86,6 +86,11 @@ br {
 	
 	height: 40px;
 	margin: 10px 0;
+	padding: 0;
+	
+	label {
+		color: white;
+	}
 	
 	button {
 		height: 100%;
@@ -156,10 +161,10 @@ br {
 	
 	color: white;
 	background: $cherry-wine;
-	
+
 	padding: $standard-padding;
 	margin: 10px 0;
-	
+
 	p, span {
 		margin-top: 10px;
 		line-height: 35px;
@@ -267,5 +272,65 @@ li.activeTab {
 	a:hover {
 		background: $red-wine;
 	}
+	
+}
+
+.scope-video {
+	
+	display: flex;
+	align-items: center;
+	
+	height: 325px;
+	width: 100%;
+	
+	background: navy;
+	
+}
+
+.flex-container-center {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-content: center;
+	-ms-flex-line-pack: center;
+	align-content: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.flex-item-center:nth-child(1) {
+	-webkit-order: 0;
+	-ms-flex-order: 0;
+	order: 0;
+	-webkit-flex: 0 1 auto;
+	-ms-flex: 0 1 auto;
+	flex: 0 1 auto;
+	-webkit-align-self: center;
+	-ms-flex-item-align: center;
+	align-self: center;
+}
+
+.embedVideo {
+	padding: 10px;
+}
+
+
+.person {
+	background: #8B4513	;
+	width: 240px;
+	height: 240px;
+	
+	padding: 10px;
+	border-radius: 20px;
 	
 }

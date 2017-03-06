@@ -36,7 +36,7 @@ const MyTabsController = function () {
 		
 		// Select latest pane for faster testing
 		
-		const preLast = 1;
+		const preLast = 2;
 		
 		/**
 		 * If there are no panes, select the new pane so that there is

@@ -6,6 +6,12 @@ It portrays the code examples found in the [AngularJS 1.6 documents](https://cod
 
 This application also allows me to demonstrate to you my understanding of Front End Architecture: modern styling through SCSS, automatic continuous build through Gulp, MVP engineering and component-based design through Angular, responsive design through Bootstrap, modularity.
 
+#### Highlights:
+
+* Adobe Character Animator will be used to create a talking kidney for one of the examples in the `$scope` pane. The kidney will be created using Adobe Illustrator. 
+
+#### Set up:
+
 After cloning the project, please run the following:
 
 If you have `yarn` installed:

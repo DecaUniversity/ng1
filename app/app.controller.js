@@ -6,6 +6,7 @@ angular.module("app")
 		$scope.panes = [
 			"/partials/controllers-pane.html",
 			"/partials/services-pane.html",
+			"/partials/scopes-pane.html",
 			"/partials/components-pane.html",
 			"/partials/animations-pane.html"
 		];
