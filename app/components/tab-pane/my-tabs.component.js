@@ -71,7 +71,7 @@ angular.module("app")
 		
 		transclude: true,
 		controller: MyTabsController,
-		templateUrl: "/components/tab-pane/my-tabs.html"
+		templateUrl: "components/tab-pane/my-tabs.html"
 		
 	});
 
