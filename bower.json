@@ -9,8 +9,7 @@
   "private": true,
   "dependencies": {
     "angular": "^1.5.8",
-    "angular-animate": "^1.6.2",
-    "bootstrap": "^3.3.7"
+    "angular-animate": "^1.6.2"
   },
   "overrides": {
     "bootstrap": {
