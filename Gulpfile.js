@@ -1,132 +1,499 @@
 "use strict";
 
-const gulp = require('gulp');
+const gulp = require("gulp");
+
+const del = require("del");
+const path = require("path");
+const runSequence = require("run-sequence");
+
+const watch = require("gulp-watch");
+
+const sass = require("gulp-sass");
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
+const eslint = require("gulp-eslint");
+const babel = require("gulp-babel");
+const sourcemaps = require("gulp-sourcemaps");
+
 const injector = require('gulp-inject');
-const browserSync = require('browser-sync').create();
-const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
-const eslint = require('gulp-eslint');
-const gutil = require('gulp-util');
-const sass = require('gulp-sass');
-const runSequence = require('run-sequence');
 
-// Compiles SCSS files
-gulp.task('sass', function() {
+const browserSync = require("browser-sync");
+const reload = browserSync.reload;
 
-	gutil.log("task sass");
 
-	return gulp.src("app/**/*.scss")
-		.pipe(sass())
-		.pipe(gulp.dest("app/css"))
-		.pipe(browserSync.stream());
+const util = require("./utils.js");
+
+/******************************************************************************************
+ FILE PATHS
+ ******************************************************************************************/
+
+let srcFiles = {
+	
+	scss: [
+		"!app/lib/**",
+		"!app/lib",
+		"!app/dist",
+		"!app/dist/**",
+		"app/**/*.scss",
+	],
+	html: [
+		"!app/lib",
+		"!app/lib/**",
+		"!app/dist",
+		"!app/dist/**",
+		"app/**/*.html"
+	],
+	js: [
+		"!app/lib",
+		"!app/lib/**",
+		"!app/dist",
+		"!app/dist/**",
+		"app/**/*.js"
+	],
+	injectorAngular: [
+		'app/dist/**/*.css',
+		'app/dist/app.js',
+		'app/dist/**/*module.js',
+		'app/dist/**/*constants.js',
+		'app/dist/**/*provider.js',
+		'app/dist/**/*enum.js',
+		'app/dist/**/*model.js',
+		'app/dist/**/*config.js',
+		'app/dist/**/*filter.js',
+		'app/dist/**/*directive.js',
+		'app/dist/**/*decorator.js',
+		'app/dist/**/*interceptor.js',
+		'app/dist/**/*service.js',
+		'app/dist/**/*workflow.js',
+		'app/dist/**/*repository.js',
+		'app/dist/**/*resolver.js',
+		'app/dist/**/*controller.js',
+		'app/dist/**/*component.js',
+		'app/dist/**/**.js'
+	]
+};
+
+
+let destDir = {
+	
+	scss: "app/dist",
+	js: "app/dist"
+	
+};
+
+/********************************************************************************
+ TASKS
+ ********************************************************************************/
+
+/********************************************************************************
+ Initialization Tasks
+ ********************************************************************************/
+
+/**
+ * Default task
+ */
+gulp.task("default", function() {
+	
+	util.printTask("default");
+	
+	runSequence('init');
+	
 });
 
-// Lints the JS files
-gulp.task('lint', () => {
+/**
+ * Initialization task
+ */
+gulp.task("init", function() {
+	
+	util.printTask("init");
+	
+	const cleaning = [
+		"clean:dist"
+	];
+	
+	const watching = [
+		'scss-watch',
+		'html-watch',
+		'js-watch'
+	];
+	
+	runSequence(cleaning,'sass', 'eslint', 'transpile', 'inject', watching, "serve");
+	
+});
 
-	gutil.log("task lint");
 
-	return gulp.src(['!app/lib', '!app/lib/**',
-			'!app/dist', '!app/dist/**', 'app/**/*.js'])
+/********************************************************************************
+ Cleaning Tasks
+ ********************************************************************************/
+
+/**
+ * Deletes the dist folder
+ */
+gulp.task("clean:dist", function () {
+	
+	util.printTask("clean:dist");
+	
+	return del([
+		"app/dist"
+	]);
+	
+});
+
+/********************************************************************************
+ Transforming Tasks
+ ********************************************************************************/
+
+/**
+ * Compiles .scss to .css
+ */
+gulp.task('sass', function() {
+	
+	util.printTask("sass");
+	
+	let processors = [
+		autoprefixer
+	];
+	
+	return gulp.src(srcFiles.scss)
+		.pipe(sass().on("error", sass.logError))
+		.pipe(postcss(processors))
+		.pipe(gulp.dest(destDir.scss));
+	
+});
+
+/**
+ * Transpile ES6 to ES5
+ */
+gulp.task("transpile", function () {
+	
+	const babelOptions = {
+		
+		presets: ["es2015"]
+		
+	};
+	
+	return gulp.src(srcFiles.js)
+		.pipe(sourcemaps.init())
+		.pipe(babel(babelOptions))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(destDir.js));
+	
+});
+
+/********************************************************************************
+ Utility Tasks
+ ********************************************************************************/
+
+/**
+ * Uses eslint to provide warning about style problems or potential pitfalls
+ */
+gulp.task("eslint", function () {
+	
+	return gulp.src(srcFiles.js)
 		.pipe(eslint())
 		.pipe(eslint.format());
-		// .pipe(eslint.failAfterError());
+	
 });
 
-// Inject JS files into the index.html (SPA model) in the right order that makes
-// sense for an Angular app.
-gulp.task('inject', () => {
-
-	gutil.log("task inject");
-
-	let wiredep = require('wiredep').stream;
-
-	let options = {
-		bowerJson: require('./bower.json'),
-		directory: 'app/lib'
-	};
-
+/**
+ * Injects .scss files into index.html
+ */
+gulp.task('inject', function () {
+	
+	util.printTask("inject");
+	
 	let injectOptions = {
 		ignorePath: 'app/',
-		addRootSlash: false
+		addRootSlash: false,
+		empty: true
 	};
-
-	let injectSrc = gulp.src([
-		'!app/lib', '!app/lib/**', "!app/dist", "!app/dist/**",
-		'app/css/**/*.css',
-		'app/app.js',
-		'app/**/*module.js',
-		'app/**/*constants.js',
-		'app/**/*provider.js',
-		'app/**/*enum.js',
-		'app/**/*model.js',
-		'app/**/*config.js',
-		'app/**/*filter.js',
-		'app/**/*directive.js',
-		'app/**/*decorator.js',
-		'app/**/*interceptor.js',
-		'app/**/*service.js',
-		'app/**/*workflow.js',
-		'app/**/*repository.js',
-		'app/**/*resolver.js',
-		'app/**/*controller.js',
-		'app/**/*component.js',
-		'app/**/**.js'], {
-		read: false,
-	});
-
-	return gulp.src('app/*.html').
-		pipe(wiredep(options)).
-		pipe(injector(injectSrc, injectOptions)).
-		pipe(gulp.dest('app'));
+	
+	let injectSrc = gulp.src(srcFiles.injectorAngular, {read: false});
+	
+	return gulp.src('app/index.html')
+		.pipe(injector(injectSrc, injectOptions))
+		.pipe(gulp.dest('app'));
 });
 
-// Task that runs when JS files that are being watched change.
-gulp.task('js-watch', (done) => {
-	gutil.log("task js-watch");
-
-	runSequence('lint', 'inject', function () {
-		done();
-	});
+/**
+ * Serve application using browser-sync
+ */
+gulp.task("serve", function () {
 	
-});
-
-// Task that runs when .html files are changed
-// This one reloads the browser
-gulp.task('html-watch', () => {
+	util.printTask("serve");
 	
-	gutil.log("task html-watch");
-	browserSync.reload();
-	
-});
-
-// Task that services the application and uses browsersync to auto-refresh
-// the browser when html, css or js files change.
-gulp.task('serve', () => {
-
-	gutil.log("task serve");
-
 	browserSync.init({
 		server: {
 			baseDir: "app"
 		}
+	})
+	
+});
+
+/********************************************************************************
+ Watch Tasks
+ ********************************************************************************/
+
+/**
+ * Watch js files and transpile them to ES5
+ * This effort is made to support Safari and Safari Mobile.
+ */
+gulp.task("js-watch", function () {
+	
+	util.printTask("js-watch");
+	
+	let watcher = watch(srcFiles.js);
+	
+	watcher.on("change", function (filepath) {
+		
+		runSequence('eslint', 'transpile', 'inject');
+		// reload();
+		
 	});
 	
-	gulp.watch(['!app/lib', '!app/lib/**', '!app/dist', '!app/dist/**', 'app/**/*.js'], ['js-watch']);
-	gulp.watch(['!app/lib', '!app/lib/**', '!app/dist', '!app/dist/**', 'app/**/*.scss'], ['sass']);
-	gulp.watch(['!app/lib', 'app/**/*.html'], ['html-watch']);
-
+	watcher.on("add", function (filepath) {
+		
+		runSequence('eslint', 'transpile', 'inject');
+		
+	});
+	
+	watcher.on('unlink', function (filepath) {
+		
+		console.log(filepath + " is deleted. Deleting corresponding .js files from app/dist");
+		
+		let fullPath = filepath;
+		let rootToJS = "app/dist/";
+		let fileNameBase = path.basename(filepath, '.js');
+		let pathToJS = "";
+		let fullPathToJS = "";
+		
+		let fullPathArray = fullPath.split("/");
+		let index = 0;
+		
+		for (let i = 0; i < fullPathArray.length; i++) {
+			
+			if (fullPathArray[i] === "app") {
+				
+				index = i;
+				
+				break;
+				
+			}
+		}
+		
+		for (let i = index; i < fullPathArray.length - 1; i++) {
+			
+			if (i > index && i < fullPathArray.length - 1) {
+				
+				pathToJS += fullPathArray[i] + "/";
+				
+			}
+			
+		}
+		
+		fullPathToJS = rootToJS + pathToJS + fileNameBase + ".*";
+		
+		del(fullPathToJS)
+			.then(function(paths){
+				console.log("deleted files: " + paths.join('\n'));
+				runSequence('inject');
+				// reload();
+			});
+		
+	});
+	
 });
 
-gulp.task("init", function (done) {
+/**
+ * Watch scss files for changes.
+ * Perform actions based on the file event: added, deleted, changed.
+ */
 
-	runSequence('sass', 'lint', 'inject', 'serve', function () {
-		console.log("Initialization tasks completed.");
-		done();
+gulp.task('scss-watch', function(){
+	
+	util.printTask("scss-watch");
+	
+	let watcher = watch(srcFiles.scss);
+	
+	watcher.on('unlink', function (filepath) {
+		
+		console.log(filepath + " is deleted. Deleting corresponding .css files from app/dist");
+		
+		let fullPath = filepath;
+		let rootToCSS = "app/dist/";
+		let fileNameBase = path.basename(filepath, '.scss');
+		let pathToCSS = "";
+		let fullPathToCSS = "";
+		
+		let fullPathArray = fullPath.split("/");
+		let index = 0;
+		
+		for (let i = 0; i < fullPathArray.length; i++) {
+			
+			if (fullPathArray[i] === "app") {
+				
+				index = i;
+				
+				break;
+				
+			}
+		}
+		
+		for (let i = index; i < fullPathArray.length - 1; i++) {
+			
+			if (i > index && i < fullPathArray.length - 1) {
+				
+				pathToCSS += fullPathArray[i] + "/";
+				
+			}
+			
+		}
+		
+		fullPathToCSS = rootToCSS + pathToCSS + fileNameBase + ".*";
+		
+		del(fullPathToCSS)
+			.then(function(paths){
+				console.log("deleted files: " + paths.join('\n'));
+				runSequence('inject');
+				// reload();
+			});
+		
+	});
+	
+	watcher.on('add', function (filepath) {
+		
+		console.log(filepath + " is added. Adding corresponding .css files to app/dist");
+		
+		runSequence('sass', 'inject');
+		// reload();
+		
+	});
+	
+	
+	watcher.on('change', function (filepath) {
+		
+		console.log(filepath + " changed. Sassing it and injecting it");
+		
+		runSequence('sass', 'inject');
+		// reload();
+		
+	});
+	
+});
+
+gulp.task('html-watch', function () {
+	
+	util.printTask("html-watch");
+	
+	let watcher = watch(srcFiles.html);
+	
+	watcher.on('change', function (filepath) {
+		
+		reload();
+		
 	})
-
+	
 });
 
 
-gulp.task('default', ['init']);
+/********************************************************************************
+ GitHub Pages Tasks
+ ********************************************************************************/
+
+
+/**
+ * Delete the docs folder
+ */
+gulp.task("clean:docs", function () {
+	
+	return del([
+		"docs"
+	]);
+	
+});
+
+/**
+ * Copies dist content to docs: all of the compiles .scss and transpiled .js
+ */
+gulp.task("copy:dist:docs", function () {
+	
+	return gulp.src([
+			"app/dist/**/*"
+		], {
+			base: "app/dist"
+		})
+		.pipe(gulp.dest("./docs"));
+	
+});
+
+/**
+ * Copies app content to docs: anything that didn't require transformation
+ */
+gulp.task("copy:others:docs", function () {
+	
+	return gulp.src([
+			"!app/dist/**/*",
+			"!app/**/*.js",
+			"!app/**/*.scss",
+			"app/**/*"
+		], {
+			base: "app"
+		})
+		.pipe(gulp.dest("docs"));
+	
+});
+
+/**
+ * For docs folder
+ * Injects .scss files into index.html
+ */
+gulp.task('inject:docs', function () {
+	
+	util.printTask("inject:docs");
+	
+	let injectorAngularDocs = [
+		'docs/**/*.css',
+		'docs/app.js',
+		'docs/**/*module.js',
+		'docs/**/*constants.js',
+		'docs/**/*provider.js',
+		'docs/**/*enum.js',
+		'docs/**/*model.js',
+		'docs/**/*config.js',
+		'docs/**/*filter.js',
+		'docs/**/*directive.js',
+		'docs/**/*decorator.js',
+		'docs/**/*interceptor.js',
+		'docs/**/*service.js',
+		'docs/**/*workflow.js',
+		'docs/**/*repository.js',
+		'docs/**/*resolver.js',
+		'docs/**/*controller.js',
+		'docs/**/*component.js',
+		'docs/**/**.js'
+	];
+	
+	let injectOptions = {
+		ignorePath: 'docs/',
+		addRootSlash: false,
+		empty: true
+	};
+	
+	let injectSrc = gulp.src(injectorAngularDocs, {read: false});
+	
+	return gulp.src('docs/index.html')
+		.pipe(injector(injectSrc, injectOptions))
+		.pipe(gulp.dest('docs'));
+});
+
+/**
+ * Builds docs folder needed for Github Pages deployment
+ */
+gulp.task("build:docs", function () {
+	
+	runSequence("clean:docs", "copy:dist:docs", "copy:others:docs", "inject:docs");
+	
+});
+
+
+
