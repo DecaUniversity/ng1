@@ -508,15 +508,15 @@ gulp.task("copy:lib:docs", function () {
 gulp.task("copy:others:docs", function () {
 	
 	return gulp.src([
-			"!app/dist/**/*",
-			"!app/lib/**/*",
-			"!app/**/*.js",
-			"!app/**/*.scss",
-			"app/**/*"
-		], {
-			base: "app"
-		})
-		.pipe(gulp.dest("docs"));
+		"app/**",
+		"!app/dist",
+		"!app/dist/**",
+		"!app/lib",
+		"!app/lib/**",
+		"!app/**/*.js",
+		"!app/**/*.scss"
+		], { base: "app" })
+		.pipe(gulp.dest("docs"))
 	
 });
 
@@ -529,6 +529,7 @@ gulp.task('inject:docs', function () {
 	util.printTask("inject:docs");
 	
 	let injectorAngularDocs = [
+		'!docs/lib/**/*.*',
 		'docs/**/*.css',
 		'docs/app.js',
 		'docs/**/*module.js',
