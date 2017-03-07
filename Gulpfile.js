@@ -16,12 +16,21 @@ const babel = require("gulp-babel");
 const sourcemaps = require("gulp-sourcemaps");
 
 const injector = require('gulp-inject');
+const mainBowerFiles = require("main-bower-files");
 
 const browserSync = require("browser-sync");
 const reload = browserSync.reload;
 
 
 const util = require("./utils.js");
+
+
+/**
+ * Fix for warning when running watchers on lib
+ * Warning: Possible EventEmitter memory leak detected.
+ */
+
+require('events').EventEmitter.prototype._maxListeners = 999;
 
 /******************************************************************************************
  FILE PATHS
@@ -114,10 +123,11 @@ gulp.task("init", function() {
 	const watching = [
 		'scss-watch',
 		'html-watch',
-		'js-watch'
+		'js-watch',
+		'lib-watch'
 	];
 	
-	runSequence(cleaning,'sass', 'eslint', 'transpile', 'inject', watching, "serve");
+	runSequence(cleaning,'sass', 'eslint', 'transpile', 'inject', 'inject:lib', watching, "serve");
 	
 });
 
@@ -213,6 +223,27 @@ gulp.task('inject', function () {
 	return gulp.src('app/index.html')
 		.pipe(injector(injectSrc, injectOptions))
 		.pipe(gulp.dest('app'));
+});
+
+gulp.task("inject:lib", function () {
+	
+	util.printTask("inject:lib");
+	
+	/**
+	 * devDependencies won't be injected into
+	 */
+	
+	let injectOptions = {
+		name: "bower",
+		ignorePath: 'app/',
+		addRootSlash: false,
+		empty: true
+	};
+	
+	return gulp.src("app/index.html")
+		.pipe(injector(gulp.src(mainBowerFiles(), {read: false}), injectOptions))
+		.pipe(gulp.dest("app"));
+	
 });
 
 /**
@@ -395,6 +426,37 @@ gulp.task('html-watch', function () {
 	
 });
 
+gulp.task("lib-watch", function () {
+	
+	util.printTask("lib-watch");
+	
+	let watcher = watch([
+			"bower.json"
+		],
+		{
+			name: 'librarian',
+			verbose: true,
+			read: false,
+			awaitWriteFinish: true
+		});
+	
+	watcher.on('add', function (filepath) {
+		
+		console.log(`lib added: ${filepath}`);
+		runSequence('inject:lib');
+		
+	});
+	
+	watcher.on('change', function (filepath) {
+		
+		console.log(`lib changed: ${filepath}`);
+		runSequence('inject:lib');
+		
+	});
+	
+	
+});
+
 
 /********************************************************************************
  GitHub Pages Tasks
@@ -427,19 +489,34 @@ gulp.task("copy:dist:docs", function () {
 });
 
 /**
+ * Copies lib content to docs
+ */
+gulp.task("copy:lib:docs", function () {
+	
+	return gulp.src([
+			"app/lib/**/*"
+		], {
+			base: "app"
+		})
+		.pipe(gulp.dest("./docs"));
+	
+});
+
+/**
  * Copies app content to docs: anything that didn't require transformation
  */
 gulp.task("copy:others:docs", function () {
 	
 	return gulp.src([
-			"!app/dist/**/*",
-			"!app/**/*.js",
-			"!app/**/*.scss",
-			"app/**/*"
-		], {
-			base: "app"
-		})
-		.pipe(gulp.dest("docs"));
+		"app/**",
+		"!app/dist",
+		"!app/dist/**",
+		"!app/lib",
+		"!app/lib/**",
+		"!app/**/*.js",
+		"!app/**/*.scss"
+		], { base: "app" })
+		.pipe(gulp.dest("docs"))
 	
 });
 
@@ -452,6 +529,7 @@ gulp.task('inject:docs', function () {
 	util.printTask("inject:docs");
 	
 	let injectorAngularDocs = [
+		'!docs/lib/**/*.*',
 		'docs/**/*.css',
 		'docs/app.js',
 		'docs/**/*module.js',
@@ -491,7 +569,7 @@ gulp.task('inject:docs', function () {
  */
 gulp.task("build:docs", function () {
 	
-	runSequence("clean:docs", "copy:dist:docs", "copy:others:docs", "inject:docs");
+	runSequence("clean:docs", "copy:dist:docs", "copy:others:docs", "copy:lib:docs", "inject:docs");
 	
 });
 

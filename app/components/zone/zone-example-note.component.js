@@ -9,7 +9,7 @@ const ZoneExampleNoteController = function () {
 angular.module("app")
 	.component("zoneExampleNote", {
 	
-		templateUrl: "/components/zone/zone-example-note.html",
+		templateUrl: "components/zone/zone-example-note.html",
 		controller: ZoneExampleNoteController,
 		transclude: true
 		

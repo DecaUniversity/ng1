@@ -10,6 +10,6 @@ angular.module("app")
 	.component("hero", {
 		bindings: {hero: "@"},
 		controller: HeroController,
-		templateUrl: "/components/hero/hero.html"
+		templateUrl: "components/hero/hero.html"
 		
 	});

@@ -55,6 +55,6 @@ const HeroListController = function ($scope, $element, $attrs) {
 
 angular.module("app")
 	.component("heroList", {
-		templateUrl: "/components/hero_tree/heroList.html",
+		templateUrl: "components/hero_tree/heroList.html",
 		controller: HeroListController
 	});
