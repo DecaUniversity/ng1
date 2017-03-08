@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("app").factory("notifyAnimated",
+angular.module("main").factory("notifyAnimated",
 	["$window", "$timeout", function (win, $timeout) {
 		
 		const rite = {
