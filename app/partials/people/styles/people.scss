@@ -1,14 +1,25 @@
-.people {
+.family {
 	
 	display: flex;
 	justify-content: center;
 	align-content: center;
 	
-	background: #8B4513;
+	background: lightcoral;
 	
 	padding: 10px;
 	border-radius: 20px;
 	
+	color: black;
+	
+}
+
+.parents {
+	
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	
+	background: lightgoldenrodyellow;
 }
 
 .person {
