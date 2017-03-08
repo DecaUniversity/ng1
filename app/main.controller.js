@@ -7,6 +7,7 @@ angular.module("main")
 			"partials/controllers-pane.html",
 			"partials/services-pane.html",
 			"partials/scopes-pane.html",
+			"partials/directives-pane.html",
 			"partials/components-pane.html",
 			"partials/animations-pane.html"
 		];
