@@ -1,7 +1,7 @@
 "use strict";
 
 
-angular.module("app")
+angular.module("main")
 	.controller("GreetingController", ["$scope", function ($scope) {
 
 		$scope.greeting = "Hola!";
@@ -9,7 +9,7 @@ angular.module("app")
 	}]);
 
 
-angular.module("app")
+angular.module("main")
 	.controller("DoubleController", ["$scope", function ($scope) {
 
 		$scope.num = null;
@@ -24,7 +24,7 @@ angular.module("app")
 
 	}]);
 
-angular.module("app")
+angular.module("main")
 	.controller("SpicyController", ["$scope", function ($scope) {
 
 		$scope.spice = "very";

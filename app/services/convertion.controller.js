@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("app").controller("ConversionController",
+angular.module("main").controller("ConversionController",
 	["$scope", "Dec2Bin", function ($scope, converter) {
 	
 		$scope.decimalNumber = "10";

@@ -48,7 +48,7 @@ const HeroDetailController = function () {
 	
 };
 
-angular.module("app")
+angular.module("main")
 	.component("heroDetail", {
 		
 		templateUrl: "components/hero_tree/heroDetail.html",

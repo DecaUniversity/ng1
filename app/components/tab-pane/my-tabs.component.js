@@ -66,7 +66,7 @@ const MyTabsController = function () {
 	
 };
 
-angular.module("app")
+angular.module("main")
 	.component("myTabs", {
 		
 		transclude: true,

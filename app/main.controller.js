@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("app")
+angular.module("main")
 	.controller("MainController", ["$scope", function ($scope) {
 		
 		$scope.panes = [

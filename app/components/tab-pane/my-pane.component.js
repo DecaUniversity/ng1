@@ -12,7 +12,7 @@ const MyPaneController = function () {
 	
 };
 
-angular.module("app")
+angular.module("main")
 	.component("myPane", {
 		transclude: true,
 		bindings: {title: "@"},

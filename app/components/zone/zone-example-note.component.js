@@ -6,7 +6,7 @@ const ZoneExampleNoteController = function () {
 	
 };
 
-angular.module("app")
+angular.module("main")
 	.component("zoneExampleNote", {
 	
 		templateUrl: "components/zone/zone-example-note.html",

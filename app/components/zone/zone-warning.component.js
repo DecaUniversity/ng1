@@ -6,7 +6,7 @@ const ZoneWarningController = function () {
 	
 };
 
-angular.module("app")
+angular.module("main")
 	.component("zoneWarning", {
 		templateUrl: "components/zone/zone-warning.html",
 		controller: ZoneWarningController,
