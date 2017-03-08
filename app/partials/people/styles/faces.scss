@@ -45,7 +45,8 @@ $ears-index: 10;
 $secondary-hair-index: $ears-index + 5;
 $fringe-index: $secondary-hair-index + 5;
 
-@mixin standard($person-skin-color, $person-hair-color, $person-ears-size, $person-blush-color) {
+@mixin standard($person-skin-color, $person-hair-color,
+$person-ears-size, $person-blush-color, $person-eye-color) {
 	/* -------------------------------------------
 
 		Default CSS Variables (Standard face) */
@@ -54,6 +55,7 @@ $fringe-index: $secondary-hair-index + 5;
 	$hair--color: $person-hair-color;
 	
 	$face__features--color: #171717;
+	$face__eye--color: $person-eye-color;
 	$face__eyes--position: 11px;
 	$face__nose--width: 5px;
 	$face__mouth--width: 45px;
@@ -84,7 +86,7 @@ $fringe-index: $secondary-hair-index + 5;
 				top: 0;
 				width: 0;
 				height: 0;
-				border: 6px solid $face__features--color;
+				border: 6px solid $face__eye--color;
 				border-radius: 10px;
 			}
 			
@@ -415,133 +417,35 @@ $fringe-index: $secondary-hair-index + 5;
 		}*/
 }
 
+/* -------------------- Default Female Face ----------------- */
 
-
-/* -------------------- Rachel Face ----------------- */
-
-.rachelface {
+.defaultFemale {
 	
-	$rachel__skin--color: #ffcd94;
-	$rachel__ears--size: 8px;
-	$rachel__hair--color: #5C2523;
-	$rachel__hair--length: 180px;
-	$rachel__hair--extra-width: 20px;
-	$rachel__hair--front-width: 20px;
-	$rachel__blush--color: #DE5D83;
+	$default-female__skin--color: #E6A676;
+	$default-female__ears--size: 8px;
+	$default-female__hair--color: #331917;
+	$default-female__hair--length: 140px;
+	$default-female__hair--extra-width: 30px;
+	$default-female__hair--front-width: 22px;
+	$default-female__blush--color: #BD6982;
+	$default-female__eye--color: green;
 	
 	@include standard(
-			$rachel__skin--color,
-			$rachel__hair--color,
-			$rachel__ears--size,
-			$rachel__blush--color
+			$default-female__skin--color,
+			$default-female__hair--color,
+			$default-female__ears--size,
+			$default-female__blush--color,
+			$default-female__eye--color
 	);
 	
 	@include standard-girl(
-			$rachel__skin--color,
-			$rachel__hair--color,
-			$rachel__hair--length,
-			$rachel__hair--extra-width,
-			$rachel__hair--front-width,
-			$rachel__ears--size
-	);
-	
-	.hair {
-
-		&:after {
-			display: none;
-		}
-	}
-}
-
-
-
-/* -------------------- Jon Face ----------------- */
-
-.jonface {
-	
-	$jon__skin--color: #ffcd94;
-	$jon__ears--size: 11px;
-	$jon__hair--color: #5C2523;
-	$jon__hair--length: 93px;
-	$jon__hair--extra-width: 10px;
-	$jon__blush--color: #E69E84;
-	
-	@include standard(
-			$jon__skin--color,
-			$jon__hair--color,
-			$jon__ears--size,
-			$jon__blush--color
-	);
-	
-	@include standard-boy(
-			$jon__skin--color,
-			$jon__hair--color,
-			$jon__hair--length,
-			$jon__hair--extra-width,
-			$jon__ears--size
+			$default-female__skin--color,
+			$default-female__hair--color,
+			$default-female__hair--length,
+			$default-female__hair--extra-width,
+			$default-female__hair--front-width,
+			$default-female__ears--size
 	);
 	
 }
 
-
-
-/* -------------------- Hayley Face ----------------- */
-
-.hayleyface {
-	
-	$hayley__skin--color: #ffcd94;
-	$hayley__ears--size: 8px;
-	$hayley__hair--color: #860600;
-	$hayley__hair--length: 180px;
-	$hayley__hair--extra-width: 20px;
-	$hayley__hair--front-width: 22px;
-	$hayley__blush--color: #DE5D83;
-	
-	@include standard(
-			$hayley__skin--color,
-			$hayley__hair--color,
-			$hayley__ears--size,
-			$hayley__blush--color
-	);
-	
-	@include standard-girl(
-			$hayley__skin--color,
-			$hayley__hair--color,
-			$hayley__hair--length,
-			$hayley__hair--extra-width,
-			$hayley__hair--front-width,
-			$hayley__ears--size
-	);
-	
-}
-
-
-/* -------------------- Enita Face ----------------- */
-
-.enitaface {
-	
-	$enita__skin--color: #E6A676;
-	$enita__ears--size: 8px;
-	$enita__hair--color: #331917;
-	$enita__hair--length: 140px;
-	$enita__hair--extra-width: 30px;
-	$enita__hair--front-width: 22px;
-	$enita__blush--color: #BD6982;
-	
-	@include standard(
-			$enita__skin--color,
-			$enita__hair--color,
-			$enita__ears--size,
-			$enita__blush--color
-	);
-	
-	@include standard-girl(
-			$enita__skin--color,
-			$enita__hair--color,
-			$enita__hair--length,
-			$enita__hair--extra-width,
-			$enita__hair--front-width,
-			$enita__ears--size
-	);
-	
-}
