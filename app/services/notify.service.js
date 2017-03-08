@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("app").controller("ServiceSampleController",
+angular.module("main").controller("ServiceSampleController",
 	["$scope", "notify", function ($scope, notify) {
 	
 		$scope.message = "enter message here";
@@ -13,7 +13,7 @@ angular.module("app").controller("ServiceSampleController",
 		
 	}]);
 
-angular.module("app")
+angular.module("main")
 	.factory("notify", ["$window", function (win) {
 		
 		let messages = [];

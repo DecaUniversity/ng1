@@ -6,7 +6,7 @@ const ZoneController = function () {
 	
 };
 
-angular.module("app")
+angular.module("main")
 	.component("zone", {
 		bindings: {zoneLabel: "@"},
 		controller: ZoneController,

@@ -16,7 +16,7 @@ const ZoneExampleController = function () {
 };
 
 
-angular.module("app")
+angular.module("main")
 	.component("zoneExample", {
 		
 		templateUrl: "components/zone/zone-example.html",

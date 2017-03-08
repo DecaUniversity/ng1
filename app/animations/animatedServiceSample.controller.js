@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("app").controller("AnimatedServiceSampleController",
+angular.module("main").controller("AnimatedServiceSampleController",
 	["$scope", "notifyAnimated", function ($scope, notify) {
 		
 		$scope.ritual = {};
