@@ -45,10 +45,13 @@
 			
 			<zone-example>
 				
-				<div class="person">
+				<div class="family">
 					
-					<div ng-include="'partials/faces/people.html'"></div>
-				
+					<div class="parents" ng-controller="ParentsController">
+						<div class="person" ng-include="'partials/people/female.html'"></div>
+						<div class="person" ng-include="'partials/people/male.html'"></div>
+					</div>
+					
 				</div>
 				
 				
