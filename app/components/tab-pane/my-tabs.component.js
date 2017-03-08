@@ -34,27 +34,12 @@ const MyTabsController = function () {
 	 */
 	ctrl.addPane = function (pane) {
 		
-		// Select latest pane for faster testing
-		
-		const preLast = 2;
-		
 		/**
 		 * If there are no panes, select the new pane so that there is
 		 * always at least one active pane.
 		 */
 		
-		if (panes.length === 0) {
-			
-			/**
-			 * Uncomment to restore first pane being selected by default
-			 * Keep using while on testing
-			 * ctrl.select(pane);
-			 */
-			
-			
-			console.log(pane);
-			
-		} else if (panes.length === preLast) {
+		if (panes.length === this.defaultTab) {
 			
 			ctrl.select(pane);
 			
@@ -71,7 +56,8 @@ angular.module("main")
 		
 		transclude: true,
 		controller: MyTabsController,
-		templateUrl: "components/tab-pane/my-tabs.html"
+		templateUrl: "components/tab-pane/my-tabs.html",
+		bindings: {defaultTab: "<"}
 		
 	});
 
