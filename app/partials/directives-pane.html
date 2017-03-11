@@ -2,6 +2,36 @@
 	<zone zone-label="Directives">
 		
 		<zone-example>
+			<zone-example-note>
+				
+				<p>Directives are markers on a DOM element that tell AngularJS' HTML compiler ($compile) to attach specified behavior to that DOM element or even transform the element and its children.
+				</p>
+				
+				<p>
+					For AngularJS, "compilation" means attaching directives to the HTML to make it interactive. It is a recursive process similar to that of compiling programming languages.
+				</p>
+				
+				<p>
+					Angular goes through a process of normalizing an element's tag and attribute names when trying to match elements with directives. The process is as follows: (1) Strip the x- and data- from the front of the element/attributes, (2) Convert the :, - or _ delimited name to camelCase.
+				</p>
+			</zone-example-note>
+			
+			<div ng-controller="DirectivesController">
+				x
+				<label>
+					Drink:
+					<input ng-model="drink"> (try Coke)
+				</label>
+				<br>
+				<span ng-if="drink">I'd like to teach the world to sing in perfect harmony. I'd like to buy the world a <span class="highlightTerm" ng-bind="drink"></span> and keep it company.</span>
+				
+				<div
+						ng-if="drink.toLowerCase() === 'coke' || drink.toLowerCase() === 'cocacola' || drink.toLowerCase() === 'coca-cola'" class="flex-container-center">
+					<iframe class="embedVideo" width="560" height="315" src="https://www.youtube.com/embed/1VM2eLhvsSM?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		
 			
 		</zone-example>
 		
