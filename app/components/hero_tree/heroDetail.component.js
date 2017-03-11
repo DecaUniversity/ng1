@@ -49,7 +49,7 @@ const HeroDetailController = function () {
 };
 
 angular.module("main")
-	.component("heroDetail", {
+	.component("dhHeroDetail", {
 		
 		templateUrl: "components/hero_tree/heroDetail.html",
 		controller: HeroDetailController,

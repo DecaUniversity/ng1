@@ -44,7 +44,7 @@
 				{{hero1}}
 			</p>
 			
-			<hero-detail hero="hero1"></hero-detail>
+			<dh-hero-detail hero="hero1"></dh-hero-detail>
 		</zone-example>
 		
 		<zone-example>
@@ -55,7 +55,7 @@
 				<br>
 				Parent determines what to do with the modified data (further modify it, apply it to the model, etc).
 				<br>
-				For example: Use "Seattle" as the Location. The &ltdh-editable-field&gt component first records the change to "Seattle". However, it doesn' change the &lthero-detail&gt; model. Through an event, it sends "Seattle" up to &lthero-detail&gt;. &lthero-detail&gt; controller has business logic that modifies the location to "Starbucks City". &lthero-detail&gt; sends that up to the list component. The list component has no idea that the location was ever "Seattle". It receives "Starbucks City". &lt;hero-list&gt; applies the change to its model - the highest structure to hold the list data. The upward cascading of data through events stops there.
+				For example: Use "Seattle" as the Location. The &ltdh-editable-field&gt component first records the change to "Seattle". However, it doesn' change the &ltdh-hero-detail&gt; model. Through an event, it sends "Seattle" up to &ltdh-hero-detail&gt;. &ltdh-hero-detail&gt; controller has business logic that modifies the location to "Starbucks City". &ltdh-hero-detail&gt; sends that up to the list component. The list component has no idea that the location was ever "Seattle". It receives "Starbucks City". &lt;hero-list&gt; applies the change to its model - the highest structure to hold the list data. The upward cascading of data through events stops there.
 			</zone-example-note>
 			<hero-list></hero-list>
 		</zone-example>
