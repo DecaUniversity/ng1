@@ -52,7 +52,7 @@ const EditableFieldController = function ($scope, $element, $attrs) {
 };
 
 angular.module("main")
-	.component("editableField", {
+	.component("dhEditableField", {
 		templateUrl: "components/hero_tree/editableField.html",
 		controller: EditableFieldController,
 		bindings: {

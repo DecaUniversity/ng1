@@ -5,7 +5,7 @@
 			When using Components, camelCasing used in the name of the component or in the name of its bindings translates into camel-casing in the markup and attributes.
 			<br>
 			.component("editableField", {bindings: {fieldTitle: "<"}}) ->
-			&lteditable-field field-title=""&gt
+			&ltdh-editable-field field-title=""&gt
 		</zone-warning>
 		
 		<zone-example>
@@ -25,14 +25,14 @@
 				{{mainHero}}
 			</p>
 			<p></p>
-			<editable-field
+			<dh-editable-field
 					field-value="mainHero"
 					field-type="This is the Test type"
 			>
-			</editable-field>
+			</dh-editable-field>
 			
 			<zone-example-note>
-				This block uses the component &lteditable-field&gt. mainHero is passed through its field-value attribute. field-value has a one-way binding, &lt. The changes made to mainHero in the component do not reflect back to MainController.
+				This block uses the component &ltdh-editable-field&gt. mainHero is passed through its field-value attribute. field-value has a one-way binding, &lt. The changes made to mainHero in the component do not reflect back to MainController.
 			</zone-example-note>
 		
 		</zone-example>
@@ -55,7 +55,7 @@
 				<br>
 				Parent determines what to do with the modified data (further modify it, apply it to the model, etc).
 				<br>
-				For example: Use "Seattle" as the Location. The &lteditable-field&gt component first records the change to "Seattle". However, it doesn' change the &lthero-detail&gt; model. Through an event, it sends "Seattle" up to &lthero-detail&gt;. &lthero-detail&gt; controller has business logic that modifies the location to "Starbucks City". &lthero-detail&gt; sends that up to the list component. The list component has no idea that the location was ever "Seattle". It receives "Starbucks City". &lt;hero-list&gt; applies the change to its model - the highest structure to hold the list data. The upward cascading of data through events stops there.
+				For example: Use "Seattle" as the Location. The &ltdh-editable-field&gt component first records the change to "Seattle". However, it doesn' change the &lthero-detail&gt; model. Through an event, it sends "Seattle" up to &lthero-detail&gt;. &lthero-detail&gt; controller has business logic that modifies the location to "Starbucks City". &lthero-detail&gt; sends that up to the list component. The list component has no idea that the location was ever "Seattle". It receives "Starbucks City". &lt;hero-list&gt; applies the change to its model - the highest structure to hold the list data. The upward cascading of data through events stops there.
 			</zone-example-note>
 			<hero-list></hero-list>
 		</zone-example>
