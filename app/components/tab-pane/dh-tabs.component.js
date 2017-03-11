@@ -1,6 +1,6 @@
 "use strict";
 
-const MyTabsController = function () {
+const TabsController = function () {
 	
 	const ctrl = this;
 	
@@ -52,11 +52,11 @@ const MyTabsController = function () {
 };
 
 angular.module("main")
-	.component("myTabs", {
+	.component("dhTabs", {
 		
 		transclude: true,
-		controller: MyTabsController,
-		templateUrl: "components/tab-pane/my-tabs.html",
+		controller: TabsController,
+		templateUrl: "components/tab-pane/dh-tabs.html",
 		bindings: {defaultTab: "<"}
 		
 	});

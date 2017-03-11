@@ -18,5 +18,5 @@ angular.module("main")
 		bindings: {title: "@"},
 		templateUrl: "components/tab-pane/pane.html",
 		controller: MyPaneController,
-		require: {tabsCtrl: "^myTabs"}
+		require: {tabsCtrl: "^dhTabs"}
 	});
