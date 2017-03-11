@@ -49,15 +49,15 @@
 		
 		<zone-example>
 			<zone-example-note>
-				The list of heroes resides in the &lthero-list&gt controller.
+				The list of heroes resides in the &ltdh-hero-list&gt controller.
 				<br>
 				Data is sent from parent to descendant component, one way, through the binding. Component modifies data and sends it back to parent.
 				<br>
 				Parent determines what to do with the modified data (further modify it, apply it to the model, etc).
 				<br>
-				For example: Use "Seattle" as the Location. The &ltdh-editable-field&gt component first records the change to "Seattle". However, it doesn' change the &ltdh-hero-detail&gt; model. Through an event, it sends "Seattle" up to &ltdh-hero-detail&gt;. &ltdh-hero-detail&gt; controller has business logic that modifies the location to "Starbucks City". &ltdh-hero-detail&gt; sends that up to the list component. The list component has no idea that the location was ever "Seattle". It receives "Starbucks City". &lt;hero-list&gt; applies the change to its model - the highest structure to hold the list data. The upward cascading of data through events stops there.
+				For example: Use "Seattle" as the Location. The &ltdh-editable-field&gt component first records the change to "Seattle". However, it doesn' change the &ltdh-hero-detail&gt; model. Through an event, it sends "Seattle" up to &ltdh-hero-detail&gt;. &ltdh-hero-detail&gt; controller has business logic that modifies the location to "Starbucks City". &ltdh-hero-detail&gt; sends that up to the list component. The list component has no idea that the location was ever "Seattle". It receives "Starbucks City". &lt;dh-hero-list&gt; applies the change to its model - the highest structure to hold the list data. The upward cascading of data through events stops there.
 			</zone-example-note>
-			<hero-list></hero-list>
+			<dh-hero-list></dh-hero-list>
 		</zone-example>
 		
 		<zone-example>
