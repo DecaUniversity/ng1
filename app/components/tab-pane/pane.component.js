@@ -1,6 +1,6 @@
 "use strict";
 
-const MyPaneController = function () {
+const PaneController = function () {
 	
 	const ctrl = this;
 	
@@ -17,6 +17,6 @@ angular.module("main")
 		transclude: true,
 		bindings: {title: "@"},
 		templateUrl: "components/tab-pane/pane.html",
-		controller: MyPaneController,
+		controller: PaneController,
 		require: {tabsCtrl: "^dhTabs"}
 	});
