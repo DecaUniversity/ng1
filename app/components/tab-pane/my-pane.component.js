@@ -13,7 +13,7 @@ const MyPaneController = function () {
 };
 
 angular.module("main")
-	.component("myPane", {
+	.component("dhPane", {
 		transclude: true,
 		bindings: {title: "@"},
 		templateUrl: "components/tab-pane/my-pane.html",
