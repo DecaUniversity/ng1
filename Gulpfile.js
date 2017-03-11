@@ -17,11 +17,12 @@ const sourcemaps = require("gulp-sourcemaps");
 
 const injector = require('gulp-inject');
 const mainBowerFiles = require("main-bower-files");
+const ngsource = require("ngsource");
 
 const browserSync = require("browser-sync");
 const reload = browserSync.reload;
 
-const ngFinder = require("ngfinder");
+const log = require("bootstrap-logs");
 
 const util = require("./utils.js");
 
@@ -31,6 +32,24 @@ const util = require("./utils.js");
  */
 
 require('events').EventEmitter.prototype._maxListeners = 999;
+
+/**
+ * Handles error messages in gulp tasks and prints a pretty message.
+ * @param err Error thown by the pipe / task.
+ */
+let errorHandler = function (err) {
+	
+	const plugin = err.plugin || "Unknown";
+	const message = err.message || "Unknown Error";
+	const codeFrame = err.codeFrame || null;
+	
+	log.danger(`Build Error in ${plugin}`);
+	log.danger(`${message}`);
+	
+	if (codeFrame) {
+		log.danger(`${codeFrame}`);
+	}
+};
 
 /******************************************************************************************
  FILE PATHS
@@ -63,27 +82,12 @@ let srcFiles = {
 	
 };
 
-const getAngularSrc = function () {
-	
-	return srcFiles.injectorAngular;
-	
-};
-
-const setAngularSrc = function () {
-	
-	srcFiles.injectorAngular = ngFinder();
-	srcFiles.injectorAngular.unshift("app/dist/**/*.css");
-	
-};
-
 let destDir = {
 	
 	scss: "app/dist",
 	js: "app/dist"
 	
 };
-
-setAngularSrc();
 
 /********************************************************************************
  TASKS
@@ -110,6 +114,17 @@ gulp.task("default", function() {
 gulp.task("init", function() {
 	
 	util.printTask("init");
+	
+	try {
+		
+		ngsource.set({target: "app/dist"}, ["app/dist/**/*.css"]);
+		
+	} catch (error) {
+		
+		log.danger(error.stack);
+		return;
+		
+	}
 	
 	const cleaning = [
 		"clean:dist"
@@ -179,7 +194,12 @@ gulp.task("transpile", function () {
 	
 	return gulp.src(srcFiles.js)
 		.pipe(sourcemaps.init())
-		.pipe(babel(babelOptions))
+		.pipe(babel(babelOptions).on("error", function (err) {
+			
+			errorHandler(err);
+			this.emit('end');
+			
+		}))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(destDir.js));
 	
@@ -213,7 +233,7 @@ gulp.task('inject', function () {
 		empty: true
 	};
 	
-	let injectSrc = gulp.src(getAngularSrc(), {read: false});
+	let injectSrc = gulp.src(ngsource.get(), {read: false});
 	
 	return gulp.src('app/index.html')
 		.pipe(injector(injectSrc, injectOptions))
@@ -230,9 +250,7 @@ gulp.task('inject:add-remove-file', function () {
 		empty: true
 	};
 	
-	setAngularSrc();
-	
-	let injectSrc = gulp.src(getAngularSrc(), {read: false});
+	let injectSrc = gulp.src(ngsource.refresh(), {read: false});
 	
 	return gulp.src('app/index.html')
 		.pipe(injector(injectSrc, injectOptions))
@@ -523,13 +541,13 @@ gulp.task("copy:lib:docs", function () {
 gulp.task("copy:others:docs", function () {
 	
 	return gulp.src([
-		"app/**",
-		"!app/dist",
-		"!app/dist/**",
-		"!app/lib",
-		"!app/lib/**",
-		"!app/**/*.js",
-		"!app/**/*.scss"
+			"app/**",
+			"!app/dist",
+			"!app/dist/**",
+			"!app/lib",
+			"!app/lib/**",
+			"!app/**/*.js",
+			"!app/**/*.scss"
 		], { base: "app" })
 		.pipe(gulp.dest("docs"))
 	
@@ -543,36 +561,29 @@ gulp.task('inject:docs', function () {
 	
 	util.printTask("inject:docs");
 	
-	let injectorAngularDocs = [
-		'!docs/lib/**/*.*',
-		'docs/**/*.css',
-		'docs/main.app.js',
-		'docs/**/*module.js',
-		'docs/**/*constants.js',
-		'docs/**/*provider.js',
-		'docs/**/*enum.js',
-		'docs/**/*model.js',
-		'docs/**/*config.js',
-		'docs/**/*filter.js',
-		'docs/**/*directive.js',
-		'docs/**/*decorator.js',
-		'docs/**/*interceptor.js',
-		'docs/**/*service.js',
-		'docs/**/*workflow.js',
-		'docs/**/*repository.js',
-		'docs/**/*resolver.js',
-		'docs/**/*controller.js',
-		'docs/**/*component.js',
-		'docs/**/**.js'
-	];
-	
 	let injectOptions = {
 		ignorePath: 'docs/',
 		addRootSlash: false,
 		empty: true
 	};
 	
-	let injectSrc = gulp.src(injectorAngularDocs, {read: false});
+	try {
+		
+		ngsource.set({
+			target: "docs",
+			ignore: "docs/lib"
+		}, [
+			"docs/**/*.css"
+		]);
+		
+	} catch (error) {
+		
+		log.danger(error.stack);
+		return;
+		
+	}
+	
+	let injectSrc = gulp.src(ngsource.get(), {read: false});
 	
 	return gulp.src('docs/index.html')
 		.pipe(injector(injectSrc, injectOptions))
@@ -587,6 +598,3 @@ gulp.task("build:docs", function () {
 	runSequence("clean:docs", "copy:dist:docs", "copy:others:docs", "copy:lib:docs", "inject:docs");
 	
 });
-
-
-
