@@ -16,7 +16,7 @@ angular.module("main")
 	.component("dhPane", {
 		transclude: true,
 		bindings: {title: "@"},
-		templateUrl: "components/tab-pane/pane.html",
+		templateUrl: "topics/components/tab-pane/pane.html",
 		controller: PaneController,
 		require: {tabsCtrl: "^dhTabs"}
 	});
