@@ -19,7 +19,7 @@ const ZoneExampleController = function () {
 angular.module("main")
 	.component("dhZoneExample", {
 		
-		templateUrl: "components/zone/zone-example.html",
+		templateUrl: "topics/components/zone/zone-example.html",
 		controller: ZoneExampleController,
 		bindings: {},
 		transclude: true

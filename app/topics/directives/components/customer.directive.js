@@ -5,7 +5,7 @@ angular.module("SimpleDirective")
 		
 		return {
 			
-			templateUrl: "directives/customer.html"
+			templateUrl: "topics/directives/components/customer.html"
 			
 		}
 		

@@ -10,6 +10,6 @@ angular.module("main")
 	.component("dhHero", {
 		bindings: {hero: "@"},
 		controller: HeroController,
-		templateUrl: "components/hero/hero.html"
+		templateUrl: "topics/components/hero/hero.html"
 		
 	});
