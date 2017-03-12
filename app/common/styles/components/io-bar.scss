@@ -1,0 +1,40 @@
+.io-bar {
+	display: flex;
+	align-items: center;
+	
+	height: 40px;
+	margin: 10px 0;
+	padding: 0;
+	
+	label {
+		color: white;
+	}
+	
+	button {
+		height: 100%;
+		padding: 0 15px;
+		
+		color: white;
+		background: #8B0000;
+		
+		outline: none;
+	}
+	
+	input {
+		height: 100%;
+		padding: 0 10px;
+		
+		color: black;
+		background: white;
+		
+		outline: none;
+	}
+	
+	* {
+		margin-right: 15px;
+	}
+	
+	:last-child {
+		margin: 0;
+	}
+}
