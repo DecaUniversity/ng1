@@ -1,0 +1,32 @@
+@import "../constants";
+
+.image-frame {
+	
+	display: flex;
+	justify-content: center;
+	
+	margin: $standard-margin;
+	padding: $standard-padding;
+	
+	figure {
+		
+		background: $red-wine;
+		padding: $standard-padding;
+		
+	}
+	
+	img {
+		
+		width: 300px;
+		
+	}
+	
+	figcaption {
+		
+		margin-top: $standard-margin / 2;
+		font-size: 85%;
+		font-style: italic;
+		
+	}
+	
+}
