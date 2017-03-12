@@ -649,6 +649,12 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
+bootstrap-logs@^1.0.0, bootstrap-logs@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/bootstrap-logs/-/bootstrap-logs-1.0.2.tgz#bd085987eb5136926913e7bbd10273fbdb0fbc9f"
+  dependencies:
+    chalk "^1.1.3"
+
 brace-expansion@^1.0.0:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.6.tgz#7197d7eaa9b87e648390ea61fc66c84427420df9"
@@ -1888,6 +1894,13 @@ gulp-inject@^4.2.0:
     stream-to-array "^2.3.0"
     through2 "^2.0.1"
 
+gulp-plumber@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gulp-plumber/-/gulp-plumber-1.1.0.tgz#f12176c2d0422f60306c242fff6a01a394faba09"
+  dependencies:
+    gulp-util "^3"
+    through2 "^2"
+
 gulp-postcss@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/gulp-postcss/-/gulp-postcss-6.3.0.tgz#33ee9723e59c302f33d707fc4b7398b10f032bff"
@@ -1932,7 +1945,7 @@ gulp-sourcemaps@^2.4.1:
     through2 "2.X"
     vinyl "1.X"
 
-gulp-util@*, gulp-util@^3.0, gulp-util@^3.0.0, gulp-util@^3.0.6, gulp-util@^3.0.7, gulp-util@^3.0.8:
+gulp-util@*, gulp-util@^3, gulp-util@^3.0, gulp-util@^3.0.0, gulp-util@^3.0.6, gulp-util@^3.0.7, gulp-util@^3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -2343,6 +2356,10 @@ is-valid-glob@^0.3.0:
 is-windows@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/is-windows/-/is-windows-0.2.0.tgz#de1aa6d63ea29dd248737b69f1ff8b8002d2108c"
+
+is@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/is/-/is-3.2.1.tgz#d0ac2ad55eb7b0bec926a5266f6c662aaa83dca5"
 
 isarray@0.0.1:
   version "0.0.1"
@@ -2856,6 +2873,22 @@ negotiator@0.6.1:
 ngfinder@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ngfinder/-/ngfinder-1.0.0.tgz#481363425f85beea91f27a7a7d4879d684d8e2ed"
+
+ngfinder@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/ngfinder/-/ngfinder-2.0.2.tgz#434b4c4366a2640b5ac007e0caf66a9f5813e14f"
+  dependencies:
+    bootstrap-logs "^1.0.0"
+    chalk "^1.1.3"
+    is "^3.2.1"
+
+ngsource@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ngsource/-/ngsource-1.0.1.tgz#ab6e4bf87b323633e2f8b3ce0760d4a12575a1e8"
+  dependencies:
+    bootstrap-logs "^1.0.2"
+    is "^3.2.1"
+    ngfinder "^1.0.0"
 
 node-gyp@^3.3.1:
   version "3.5.0"
@@ -3998,7 +4031,7 @@ through2-filter@^2.0.0:
     through2 "~2.0.0"
     xtend "~4.0.0"
 
-through2@2.X, through2@^2.0.0, through2@^2.0.1, through2@~2.0.0:
+through2@2.X, through2@^2, through2@^2.0.0, through2@^2.0.1, through2@~2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.3.tgz#0004569b37c7c74ba39c43f3ced78d1ad94140be"
   dependencies:

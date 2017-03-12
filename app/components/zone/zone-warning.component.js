@@ -7,7 +7,7 @@ const ZoneWarningController = function () {
 };
 
 angular.module("main")
-	.component("zoneWarning", {
+	.component("dhZoneWarning", {
 		templateUrl: "components/zone/zone-warning.html",
 		controller: ZoneWarningController,
 		transclude: true

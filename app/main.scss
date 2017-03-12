@@ -164,6 +164,12 @@ br {
 
 	padding: $standard-padding;
 	margin: 10px 0;
+	
+	div {
+		
+		margin: 10px 0;
+		
+	}
 
 	p, span {
 		margin-top: 10px;
@@ -176,7 +182,7 @@ br {
 	
 	background: #DE8585;
 	padding: $standard-padding;
-	//margin-top: 15px;
+	margin: 15px 0;
 	font-size: $zone-example-font-size;
 	
 	color: black;
@@ -223,56 +229,56 @@ button.chant-button {
 
 .tab-bar {
 	
-	ul {
+	> ul {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
 		overflow: hidden;
 		background-color: white;
-	}
-	
-	li {
-		float: left;
-		border-bottom: 5px solid $red-wine;
-	}
-	
-	li:first-child {
-		border-left: 5px solid $red-wine;
-	}
-	
-	li:last-child {
-		border-right: 5px solid $red-wine;
-	}
-	
-	li a {
-		display: block;
-		color: black;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
-		font-family: $space-mono;
 		
+		 li {
+			 float: left;
+			 border-bottom: 5px solid $red-wine;
+		 }
+		
+		 li:first-child {
+			 border-left: 5px solid $red-wine;
+		 }
+		
+		 li:last-child {
+			 border-right: 5px solid $red-wine;
+		 }
+		
+		 li a {
+			 display: block;
+			 color: black;
+			 text-align: center;
+			 padding: 14px 16px;
+			 text-decoration: none;
+			 font-family: $space-mono;
+			
+		 }
+		
+		 li a:hover {
+			 background: $cherry-wine;
+			 color: white;
+		 }
+		
+		 li.activeTab {
+			 background: $red-wine;
+			 color: white;
+			
+			 a {
+				 color: white;
+			 }
+			
+			 a:hover {
+				 background: $red-wine;
+			 }
+			
+		 }
+		 
 	}
-	
-	li a:hover {
-		background: $cherry-wine;
-		color: white;
-	}
-	
-}
-
-li.activeTab {
-	background: $red-wine;
-	color: white;
-	
-	a {
-		color: white;
-	}
-	
-	a:hover {
-		background: $red-wine;
-	}
-	
 }
 
 .scope-video {
@@ -322,4 +328,32 @@ li.activeTab {
 
 .embedVideo {
 	padding: 10px;
+}
+
+.highlightTerm {
+	
+	background: $red-wine;
+	color: white;
+	padding: 0 5px;
+}
+
+div.inline-img {
+	
+	display: flex;
+	justify-content: center;
+	
+	margin: 15px;
+	
+	img {
+		
+		height: 250px;
+		
+	}
+	
+	figcaption {
+		
+		font-style: italic;
+		
+	}
+	
 }
