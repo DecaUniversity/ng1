@@ -56,7 +56,7 @@ angular.module("main")
 		
 		transclude: true,
 		controller: TabsController,
-		templateUrl: "components/tab-pane/dh-tabs.html",
+		templateUrl: "topics/components/tab-pane/dh-tabs.html",
 		bindings: {defaultTab: "<"}
 		
 	});
