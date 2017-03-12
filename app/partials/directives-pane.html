@@ -35,13 +35,85 @@
 		
 		<dh-zone-example>
 			
+			<dh-zone-example-note>
+				Use an element when creating a component that is in control of the template.
+				Use an attribute when you are decorating an existing element with new functionality.
+			</dh-zone-example-note>
+			
 			<div ng-controller="SimpleDirectiveController">
 				<p>
 					The following two sentences are created by using a directive as an element tag and as an attribute.
 				</p>
 				<dh-customer></dh-customer>
-				<div dh-customer></div>
 			</div>
+			
+			<dh-zone-example-note>Without an isolate scope, this simple directive needs a new controller every time to be able to display different data:</dh-zone-example-note>
+			
+			<div ng-controller="BeyonceController">
+				<dh-customer></dh-customer>
+			</div>
+			
+			<div ng-controller="KellyController">
+				<dh-customer></dh-customer>
+			</div>
+			
+			<div ng-controller="MichelleController">
+				<dh-customer></dh-customer>
+			</div>
+			
+			<div class="inline-img">
+				<figure>
+					<img src="./directives/bad.png">
+					<figcaption>That's not right! You can do better...</figcaption>
+				</figure>
+			</div>
+			
+			<div ng-controller="SimpleDirectiveController">
+				
+				<dh-better-customer info="bey"></dh-better-customer>
+				<br>
+				<dh-better-customer info="key"></dh-better-customer>
+				<br>
+				<dh-better-customer info="mey"></dh-better-customer>
+				
+				<div class="inline-img">
+					<figure>
+						<img src="./directives/walk.gif">
+						<figcaption>*drums* Hit me!</figcaption>
+					</figure>
+				</div>
+				
+				<div class="inline-img">
+					<figure>
+						<img src="./directives/good.gif">
+						<figcaption>That's better!</figcaption>
+					</figure>
+				</div>
+				
+				<dh-zone-example-note>
+					The value =attr of the properties of the scope option object are normalized just like the names of directives.
+				</dh-zone-example-note>
+				
+			</div>
+			
+		</dh-zone-example>
+		
+		<dh-zone-example>
+			
+			<div ng-controller="SimpleDirectiveController">
+				<label>
+					Date format:
+					<input ng-model="format">
+				</label>
+				{{format}}
+				<hr>
+				<span>Current time is: <span dh-current-time="format"></span></span>
+			</div>
+			
+			<dh-zone-example-note>
+				Directives should always clean up after themselves!
+				Use element.on("$destroy", ...) or scope.on("$destroy", ...) to run a clean up function.
+			</dh-zone-example-note>
 			
 		</dh-zone-example>
 		

@@ -336,3 +336,24 @@ button.chant-button {
 	color: white;
 	padding: 0 5px;
 }
+
+div.inline-img {
+	
+	display: flex;
+	justify-content: center;
+	
+	margin: 15px;
+	
+	img {
+		
+		height: 250px;
+		
+	}
+	
+	figcaption {
+		
+		font-style: italic;
+		
+	}
+	
+}
