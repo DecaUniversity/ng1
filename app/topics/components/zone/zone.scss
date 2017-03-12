@@ -1,18 +1,24 @@
 @import "../../../common/styles/constants";
 
+$zone-label-font-size: 30px;
+$zone-example-font-size: 20px;
+$zone-warning-font-size: 15px;
+
 .zone {
 
-	margin-top: 20px;
+	margin-top: $standard-margin;
 	padding: $standard-padding;
-	border: solid 5px $red-wine;
+	border: solid $standard-border-size $red-wine;
 
 	font-family: $oswald;
 	font-size: $zone-example-font-size;
 
 	hr {
-		color: $red-wine;
-		border-width: 4px;
-		border-color: inherit;
+		
+		display: block;
+		margin: $standard-margin auto;
+		border: inset $red-wine;
+	
 	}
 
 	input {
