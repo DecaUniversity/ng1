@@ -5,7 +5,7 @@ angular.module("SimpleDirective")
 		
 		return {
 			
-			template: `Name: {{customer.name}} Address: {{customer.address}}`
+			templateUrl: "directives/customer.html"
 			
 		}
 		
