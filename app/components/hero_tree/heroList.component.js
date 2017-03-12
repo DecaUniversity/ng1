@@ -54,7 +54,7 @@ const HeroListController = function ($scope, $element, $attrs) {
 };
 
 angular.module("main")
-	.component("heroList", {
+	.component("dhHeroList", {
 		templateUrl: "components/hero_tree/heroList.html",
 		controller: HeroListController
 	});

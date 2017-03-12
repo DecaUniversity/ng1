@@ -7,7 +7,7 @@ const ZoneController = function () {
 };
 
 angular.module("main")
-	.component("zone", {
+	.component("dhZone", {
 		bindings: {zoneLabel: "@"},
 		controller: ZoneController,
 		templateUrl: "components/zone/zone.template.html",

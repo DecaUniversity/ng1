@@ -7,7 +7,7 @@ const HeroController = function () {
 };
 
 angular.module("main")
-	.component("hero", {
+	.component("dhHero", {
 		bindings: {hero: "@"},
 		controller: HeroController,
 		templateUrl: "components/hero/hero.html"

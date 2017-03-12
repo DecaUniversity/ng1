@@ -17,7 +17,7 @@ const ZoneExampleController = function () {
 
 
 angular.module("main")
-	.component("zoneExample", {
+	.component("dhZoneExample", {
 		
 		templateUrl: "components/zone/zone-example.html",
 		controller: ZoneExampleController,
