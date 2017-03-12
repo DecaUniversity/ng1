@@ -1,0 +1,78 @@
+@import "../../constants";
+
+.zone {
+	
+	margin-top: 20px;
+	padding: $standard-padding;
+	border: solid 5px $red-wine;
+	
+	font-family: $oswald;
+	font-size: $zone-example-font-size;
+	
+	hr {
+		color: $red-wine;
+		border-width: 4px;
+		border-color: inherit;
+	}
+	
+	input {
+		
+		height: 100%;
+		padding: 0 10px;
+		
+		color: black;
+		background: white;
+		
+		outline: none;
+	}
+	
+}
+
+.zone-label {
+	
+	font-family: $racing-sans-one;
+	color: $red-wine;
+	font-size: $zone-label-font-size;
+	
+}
+
+.zone-example {
+	
+	color: white;
+	background: $cherry-wine;
+	
+	padding: $standard-padding;
+	margin: 10px 0;
+	
+	div {
+		
+		margin: 10px 0;
+		
+	}
+	
+	p, span {
+		margin-top: 10px;
+		line-height: 35px;
+	}
+	
+}
+
+.zone-example-note {
+	
+	background: #DE8585;
+	padding: $standard-padding;
+	margin: 15px 0;
+	font-size: $zone-example-font-size;
+	
+	color: black;
+	
+}
+
+.zone-warning {
+	font-size: $zone-example-font-size * 0.85;
+	line-height: 25px;
+	
+	i {
+		font-size: $zone-example-font-size * 1.2;
+	}
+}
