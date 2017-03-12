@@ -1,66 +1,5 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video,
-input, button{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-$space-mono: "Space Mono", monospace;
-$racing-sans-one: "Racing Sans One", cursive;
-$roboto: "Roboto", sans-serif;
-$oswald: "Oswald", sans-serif;
-
-$standard-padding: 15px;
-$banner-font-size: 50px;
-$zone-label-font-size: 30px;
-$zone-example-font-size: 20px;
-$zone-warning-font-size: 15px;
-
-$red-wine: #820002;
-$cherry-wine: #D1343A;
+@import "reset";
+@import "constants";
 
 br {
 	margin: 10px 0;
@@ -121,115 +60,11 @@ br {
 	}
 }
 
-.zone {
-	
-	margin-top: 20px;
-	padding: $standard-padding;
-	border: solid 5px $red-wine;
-	
-	font-family: $oswald;
-	font-size: $zone-example-font-size;
-	
-	hr {
-		color: $red-wine;
-		border-width: 4px;
-		border-color: inherit;
-	}
-	
-	input {
-		
-		height: 100%;
-		padding: 0 10px;
-		
-		color: black;
-		background: white;
-		
-		outline: none;
-	}
-	
-}
-
-.zone-label {
-	
-	font-family: $racing-sans-one;
-	color: $red-wine;
-	font-size: $zone-label-font-size;
-	
-}
-
-.zone-example {
-	
-	color: white;
-	background: $cherry-wine;
-
-	padding: $standard-padding;
-	margin: 10px 0;
-	
-	div {
-		
-		margin: 10px 0;
-		
-	}
-
-	p, span {
-		margin-top: 10px;
-		line-height: 35px;
-	}
-	
-}
-
-.zone-example-note {
-	
-	background: #DE8585;
-	padding: $standard-padding;
-	margin: 15px 0;
-	font-size: $zone-example-font-size;
-	
-	color: black;
-	
-}
-
-// editableField Component
-
-.editableField {
-	
-}
-
-.zone-warning {
-	font-size: $zone-example-font-size * 0.85;
-	line-height: 25px;
-	
-	i {
-		font-size: $zone-example-font-size * 1.2;
-	}
-}
-
-.bang-button:active {
-	background: white;
-	color: $red-wine;
-	box-shadow: 5px 5px black;
-}
-
-button.chant-button {
-	background: black;
-}
-
-.riteImg {
-	display: block;
-	margin: auto;
-	height: 100%;
-}
-
-.ritual-result {
-	display: block;
-	height: 350px;
-}
-
 // Pane Experiment
 
 .tab-bar {
 	
-	> ul {
+	>ul {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
@@ -291,39 +126,6 @@ button.chant-button {
 	
 	background: navy;
 	
-}
-
-.flex-container-center {
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-flex-wrap: nowrap;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-align-content: center;
-	-ms-flex-line-pack: center;
-	align-content: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-
-.flex-item-center:nth-child(1) {
-	-webkit-order: 0;
-	-ms-flex-order: 0;
-	order: 0;
-	-webkit-flex: 0 1 auto;
-	-ms-flex: 0 1 auto;
-	flex: 0 1 auto;
-	-webkit-align-self: center;
-	-ms-flex-item-align: center;
-	align-self: center;
 }
 
 .embedVideo {
