@@ -10,6 +10,6 @@ angular.module("main")
 	.component("dhZone", {
 		bindings: {zoneLabel: "@"},
 		controller: ZoneController,
-		templateUrl: "components/zone/zone.template.html",
+		templateUrl: "topics/components/zone/zone.template.html",
 		transclude: true
 	});

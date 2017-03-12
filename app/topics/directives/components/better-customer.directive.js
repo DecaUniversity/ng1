@@ -11,7 +11,7 @@ angular.module("SimpleDirective")
 				customerInfo: "=info"
 				
 			},
-			templateUrl: "directives/better-customer.html"
+			templateUrl: "topics/directives/components/better-customer.html"
 			
 		}
 		

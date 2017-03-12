@@ -12,10 +12,10 @@ angular.module("main").factory("notifyAnimated",
 		let previousChant = "";
 		const maxChants = 3;
 		
-		const bloodyMaryImg = "/animations/bloody-mary.jpg";
-		const thundercatsImg = "/animations/thundercats.gif";
-		const bettlejuiceImg = "/animations/beetlejuice.gif";
-		const shameImg = "/animations/shame.gif";
+		const bloodyMaryImg = "topics/animations/assets/bloody-mary.jpg";
+		const thundercatsImg = "topics/animations/assets/thundercats.gif";
+		const bettlejuiceImg = "topics/animations/assets/beetlejuice.gif";
+		const shameImg = "topics/animations/assets/shame.gif";
 		
 		const reset = function () {
 			
