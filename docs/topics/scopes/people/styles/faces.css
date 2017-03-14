@@ -1,0 +1,208 @@
+/*
+
+Copyright (c) 2017 by Rachel Bull (http://codepen.io/rachel_web/pen/doaPWN)
+
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+.faces-container {
+  position: relative;
+  border-radius: 10px;
+  height: 200px;
+  width: 200px;
+  padding: 20px;
+  float: left; }
+  .faces-container span {
+    margin-top: 0; }
+
+/* ---- z-index ---- */
+/* -------------------- Default Female Face ----------------- */
+.defaultFemale {
+  /* -------------------------------------------
+
+		Default CSS Variables (Standard face) */
+  /* ------------------------------------------- */
+  /* -------------------------------------------
+
+		Default CSS Variables (Girl) */
+  /* ------------------------------------------- */ }
+  .defaultFemale header {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2);
+    background: #E6A676;
+    overflow: hidden; }
+    .defaultFemale header .eyes {
+      position: absolute;
+      top: 37%;
+      left: 50%; }
+      .defaultFemale header .eyes:before, .defaultFemale header .eyes:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border: 6px solid green;
+        border-radius: 10px; }
+      .defaultFemale header .eyes:before {
+        left: 11px; }
+      .defaultFemale header .eyes:after {
+        right: 11px; }
+    .defaultFemale header .nose {
+      position: absolute;
+      top: 53%;
+      left: 50%;
+      height: 10px;
+      width: 5px;
+      margin-left: calc(-5px / 2);
+      border: 2px solid #171717;
+      border-color: transparent transparent #171717 #171717;
+      border-radius: 0 10px 10px;
+      -webkit-transform: rotate(9deg);
+      transform: rotate(9deg); }
+    .defaultFemale header .mouth {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      width: 45px;
+      height: 40px;
+      margin-left: calc((-45px + -2px) / 2);
+      border: 2px solid #171717;
+      border-radius: 20px;
+      border-color: transparent transparent #171717 transparent; }
+    .defaultFemale header .blush {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      height: 50px;
+      width: 94px;
+      margin-left: calc(-94px / 2); }
+      .defaultFemale header .blush:before, .defaultFemale header .blush:after {
+        box-shadow: 0 0 15px 8px rgba(189, 105, 130, 0.6);
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0; }
+      .defaultFemale header .blush:before {
+        left: 15px; }
+      .defaultFemale header .blush:after {
+        right: 15px; }
+  .defaultFemale .ears {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2); }
+    .defaultFemale .ears:before, .defaultFemale .ears:after {
+      content: "";
+      position: absolute;
+      top: 44%;
+      background: #E6A676;
+      height: 22px;
+      width: 8px;
+      z-index: 10; }
+    .defaultFemale .ears:before {
+      left: -8px;
+      border-radius: 16px 8px 8px 16px; }
+    .defaultFemale .ears:after {
+      right: -8px;
+      border-radius: 8px 16px 16px 8px; }
+  .defaultFemale .hair {
+    position: absolute;
+    background: #331917;
+    top: 18%;
+    left: 50%; }
+  .defaultFemale header {
+    border-radius: 50px 50px 50px 50px; }
+  .defaultFemale .hair {
+    height: 140px;
+    width: calc(124px);
+    margin-left: calc((-124px) / 2);
+    border-radius: 60px 60px 10px 10px; }
+    .defaultFemale .hair:before, .defaultFemale .hair:after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      z-index: 15;
+      height: calc(140px - 8px);
+      width: 52px; }
+    .defaultFemale .hair:before {
+      border-left: 22px solid black;
+      border-radius: 96px 5px 5px 50px;
+      left: 0; }
+    .defaultFemale .hair:after {
+      border-right: 22px solid black;
+      border-radius: 5px 96px 50px 5px;
+      right: 0; }
+    .defaultFemale .hair .right-side-fringe {
+      position: absolute;
+      top: -1%;
+      right: 10px;
+      height: 94px;
+      width: 40px;
+      border-right: black solid 30px;
+      border-radius: 5px 100px 100px 50px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      z-index: 20; }
+    .defaultFemale .hair .full-fringe {
+      position: absolute;
+      top: 4%;
+      left: 50%;
+      margin-left: calc(-94px / 2);
+      width: 94px;
+      height: 94px;
+      border-top: black solid 40px;
+      border-radius: 90px 90px 5px 5px;
+      z-index: 20; }
+    .defaultFemale .hair .both-side-fringe:before, .defaultFemale .hair .both-side-fringe:after {
+      content: "";
+      position: absolute;
+      top: -5%;
+      height: 59px;
+      width: 22px;
+      z-index: 20; }
+    .defaultFemale .hair .both-side-fringe:before {
+      border-left: black solid 16px;
+      border-radius: 72px 5px 50px 52px;
+      left: 9px;
+      -webkit-transform: rotate(-128deg);
+      transform: rotate(-128deg); }
+    .defaultFemale .hair .both-side-fringe:after {
+      border-right: black solid 16px;
+      border-radius: 5px 72px 52px 50px;
+      right: 9px;
+      -webkit-transform: rotate(128deg);
+      transform: rotate(128deg); }
+  .defaultFemale .bow {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2); }
+    .defaultFemale .bow:before, .defaultFemale .bow:after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 25%;
+      border-left: 25px solid #6A5ACD;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      height: 16px;
+      width: 0;
+      border-radius: 8px 0 0 8px;
+      z-index: 0; }
+    .defaultFemale .bow:after {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+      margin-left: 25px; }

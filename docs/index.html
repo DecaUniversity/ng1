@@ -6,34 +6,34 @@
 		<title>Push Recipe Test UI</title>
 		
 		<!-- For old IEs -->
-		<link rel="shortcut icon" href="favicon/favicon.ico" />
+		<link rel="shortcut icon" href="common/favicon/favicon.ico" />
 		
 		<!-- For new browsers - multisize ico  -->
-		<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="favicon/favicon.ico">
+		<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="common/favicon/favicon.ico">
 		
 		<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
-		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/favicon-152.png">
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="common/favicon/favicon-152.png">
 		
 		<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/favicon-144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="common/favicon/favicon-144.png">
 		
 		<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
-		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/favicon-120.png">
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="common/favicon/favicon-120.png">
 		
 		<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/favicon-114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="common/favicon/favicon-114.png">
 		
 		<!-- For iPhone 6+ -->
-		<link rel="apple-touch-icon-precomposed" sizes="180x180" href="favicon/favicon-180.png">
+		<link rel="apple-touch-icon-precomposed" sizes="180x180" href="common/favicon/favicon-180.png">
 		
 		<!-- For first- and second-generation iPad: -->
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/favicon-72.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="common/favicon/favicon-72.png">
 		
 		<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-		<link rel="apple-touch-icon-precomposed" href="favicon/favicon-57.png">
+		<link rel="apple-touch-icon-precomposed" href="common/favicon/favicon-57.png">
 		
 		<!-- For Old Chrome -->
-		<link rel="icon" href="favicon/favicon-32.png" sizes="32x32">
+		<link rel="icon" href="common/favicon/favicon-32.png" sizes="32x32">
 		
 		<!-- For IE10 Metro -->
 		<meta name="msapplication-TileColor" content="#FFFFFF">
@@ -41,10 +41,10 @@
 		<meta name="theme-color" content="#ffffff">
 		
 		<!-- Chrome for Android -->
-		<link rel="manifest" href="favicon/manifest.json">
-		<link rel="icon" sizes="192x192" href="favicon/favicon-192.png">
+		<link rel="manifest" href="common/favicon/manifest.json">
+		<link rel="icon" sizes="192x192" href="common/favicon/favicon-192.png">
 		
-		<link href="https://fonts.googleapis.com/css?family=Oswald|Racing+Sans+One|Roboto|Space+Mono:400,700|Work+Sans:500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Ubuntu|Oswald|Racing+Sans+One|Roboto|Space+Mono:400,700|Work+Sans:500" rel="stylesheet">
 		
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 		      rel="stylesheet">
@@ -53,10 +53,19 @@
 		<!-- endinject -->
 		
 		<!-- inject:css-->
-		<link rel="stylesheet" href="animation.css">
 		<link rel="stylesheet" href="main.css">
-		<link rel="stylesheet" href="partials/people/styles/faces.css">
-		<link rel="stylesheet" href="partials/people/styles/people.css">
+		<link rel="stylesheet" href="common/styles/animation.css">
+		<link rel="stylesheet" href="common/styles/containers.css">
+		<link rel="stylesheet" href="lib/angular/angular-csp.css">
+		<link rel="stylesheet" href="common/styles/decorators/text-formatting.css">
+		<link rel="stylesheet" href="common/styles/components/image-frame.css">
+		<link rel="stylesheet" href="common/styles/components/io-bar.css">
+		<link rel="stylesheet" href="common/styles/components/tab-bar.css">
+		<link rel="stylesheet" href="common/styles/components/video-frame.css">
+		<link rel="stylesheet" href="topics/animations/styles/rite.css">
+		<link rel="stylesheet" href="topics/components/zone/zone.css">
+		<link rel="stylesheet" href="topics/scopes/people/styles/faces.css">
+		<link rel="stylesheet" href="topics/scopes/people/styles/people.css">
 		<!-- endinject -->
 	
 	
@@ -67,11 +76,11 @@
 			
 			<h1 class="area-label">NG-1</h1>
 			
-			<my-tabs>
+			<dh-tabs default-tab="3">
 				
-				<ng-include ng-repeat="pane in panes" src="pane"></ng-include>
+				<ng-include ng-repeat="pane in panes track by $index" src="pane"></ng-include>
 			
-			</my-tabs>
+			</dh-tabs>
 		
 		</div>
 		
@@ -81,26 +90,32 @@
 		<!-- endinject -->
 		
 		<!-- inject:js -->
-		<script src="main.app.js"></script>
-		<script src="scopes/family.module.js"></script>
-		<script src="scopes/scopes.module.js"></script>
-		<script src="animations/notify.animated.service.js"></script>
-		<script src="services/notify.service.js"></script>
-		<script src="main.controller.js"></script>
-		<script src="animations/animatedServiceSample.controller.js"></script>
-		<script src="controllers/controllers.controller.js"></script>
-		<script src="scopes/family.controller.js"></script>
-		<script src="services/convertion.controller.js"></script>
-		<script src="topics/components/hero/hero.component.js"></script>
-		<script src="topics/components/hero_tree/editableField.component.js"></script>
-		<script src="topics/components/hero_tree/heroDetail.component.js"></script>
-		<script src="topics/components/hero_tree/heroList.component.js"></script>
-		<script src="topics/components/tab-pane/my-pane.component.js"></script>
-		<script src="topics/components/tab-pane/my-tabs.component.js"></script>
-		<script src="topics/components/zone/zone-example-note.component.js"></script>
-		<script src="topics/components/zone/zone-example.component.js"></script>
-		<script src="topics/components/zone/zone-warning.component.js"></script>
-		<script src="topics/components/zone/zone.component.js"></script>
+		<script src="app/dist/main.app.js"></script>
+		<script src="app/dist/topics/directives/scripts/simple-directive.module.js"></script>
+		<script src="app/dist/topics/scopes/scripts/family.module.js"></script>
+		<script src="app/dist/topics/scopes/scripts/scopes.module.js"></script>
+		<script src="app/dist/topics/directives/components/better-customer.directive.js"></script>
+		<script src="app/dist/topics/directives/components/customer.directive.js"></script>
+		<script src="app/dist/topics/animations/scripts/notify.animated.service.js"></script>
+		<script src="app/dist/topics/services/notify.service.js"></script>
+		<script src="app/dist/main.controller.js"></script>
+		<script src="app/dist/topics/animations/scripts/animatedServiceSample.controller.js"></script>
+		<script src="app/dist/topics/controllers/controllers.controller.js"></script>
+		<script src="app/dist/topics/directives/scripts/directives.controller.js"></script>
+		<script src="app/dist/topics/directives/scripts/simple-directive.controller.js"></script>
+		<script src="app/dist/topics/scopes/scripts/family.controller.js"></script>
+		<script src="app/dist/topics/services/convertion.controller.js"></script>
+		<script src="app/dist/topics/components/hero/hero.component.js"></script>
+		<script src="app/dist/topics/components/hero_tree/editableField.component.js"></script>
+		<script src="app/dist/topics/components/hero_tree/heroDetail.component.js"></script>
+		<script src="app/dist/topics/components/hero_tree/heroList.component.js"></script>
+		<script src="app/dist/topics/components/tab-pane/dh-tabs.component.js"></script>
+		<script src="app/dist/topics/components/tab-pane/pane.component.js"></script>
+		<script src="app/dist/topics/components/zone/zone-example.component.js"></script>
+		<script src="app/dist/topics/components/zone/zone-note.component.js"></script>
+		<script src="app/dist/topics/components/zone/zone-warning.component.js"></script>
+		<script src="app/dist/topics/components/zone/zone.component.js"></script>
+		<script src="app/dist/topics/directives/scripts/current-time.js"></script>
 		<!-- endinject -->
 	
 	</body>

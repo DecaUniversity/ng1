@@ -1,0 +1,30 @@
+.io-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  margin: 15px 0;
+  padding: 0;
+  background: transparent; }
+  .io-bar button {
+    background: #820002;
+    color: white;
+    height: 100%;
+    padding: 0 15px;
+    outline: none; }
+  .io-bar button:active {
+    background: white;
+    color: #820002;
+    box-shadow: 5px 5px black; }
+  .io-bar input {
+    height: 100%;
+    padding: 0 15px;
+    color: black;
+    background: white;
+    outline: none; }
+  .io-bar * {
+    margin: 0;
+    margin-right: 10px; }
