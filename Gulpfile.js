@@ -595,6 +595,14 @@ gulp.task('inject:docs', function () {
 		
 	}
 	
+	let files = ngsource.get();
+	
+	files.forEach(function (source, index) {
+		
+		files[index] = source.replace("app/dist/", "docs/");
+		
+	});
+	
 	let injectSrc = gulp.src(ngsource.get(), {read: false});
 	
 	return gulp.src('docs/index.html')

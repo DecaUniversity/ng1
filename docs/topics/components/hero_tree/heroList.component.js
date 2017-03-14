@@ -1,0 +1,51 @@
+"use strict";
+
+var HeroListController = function HeroListController($scope, $element, $attrs) {
+
+	$scope.list = [{
+		name: "Superman",
+		location: ""
+	}, {
+		name: "Batman",
+		location: "Wayne Manor"
+	}, {
+		name: "Aquaman",
+		location: "Bahama Breeze"
+	}, {
+		name: "Green Lantern",
+		location: "Green Peace HQ"
+	}];
+
+	/**
+  * Updates a hero info from the list
+  * @param hero The hero to update
+  * @param prop The property of the hero to update
+  * @param value The value to assigned to the property to update
+  * @returns
+  */
+	$scope.updateHero = function (hero, prop, value) {
+
+		hero[prop] = value;
+	};
+
+	/**
+  * Delete a hero from the list.
+  * @param hero The hero to delete from the list
+  * @returns
+  */
+	$scope.deleteHero = function (hero) {
+
+		var index = $scope.list.indexOf(hero);
+
+		if (index >= 0) {
+
+			$scope.list.splice(index, 1);
+		}
+	};
+};
+
+angular.module("main").component("dhHeroList", {
+	templateUrl: "topics/components/hero_tree/heroList.html",
+	controller: HeroListController
+});
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRvcGljcy9jb21wb25lbnRzL2hlcm9fdHJlZS9oZXJvTGlzdC5jb21wb25lbnQuanMiXSwibmFtZXMiOlsiSGVyb0xpc3RDb250cm9sbGVyIiwiJHNjb3BlIiwiJGVsZW1lbnQiLCIkYXR0cnMiLCJsaXN0IiwibmFtZSIsImxvY2F0aW9uIiwidXBkYXRlSGVybyIsImhlcm8iLCJwcm9wIiwidmFsdWUiLCJkZWxldGVIZXJvIiwiaW5kZXgiLCJpbmRleE9mIiwic3BsaWNlIiwiYW5ndWxhciIsIm1vZHVsZSIsImNvbXBvbmVudCIsInRlbXBsYXRlVXJsIiwiY29udHJvbGxlciJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUEsSUFBTUEscUJBQXFCLFNBQXJCQSxrQkFBcUIsQ0FBVUMsTUFBVixFQUFrQkMsUUFBbEIsRUFBNEJDLE1BQTVCLEVBQW9DOztBQUU5REYsUUFBT0csSUFBUCxHQUFjLENBQ2I7QUFDQ0MsUUFBTSxVQURQO0FBRUNDLFlBQVU7QUFGWCxFQURhLEVBS2I7QUFDQ0QsUUFBTSxRQURQO0FBRUNDLFlBQVU7QUFGWCxFQUxhLEVBU2I7QUFDQ0QsUUFBTSxTQURQO0FBRUNDLFlBQVU7QUFGWCxFQVRhLEVBYWI7QUFDQ0QsUUFBTSxlQURQO0FBRUNDLFlBQVU7QUFGWCxFQWJhLENBQWQ7O0FBbUJBOzs7Ozs7O0FBT0FMLFFBQU9NLFVBQVAsR0FBb0IsVUFBVUMsSUFBVixFQUFnQkMsSUFBaEIsRUFBc0JDLEtBQXRCLEVBQTZCOztBQUVoREYsT0FBS0MsSUFBTCxJQUFhQyxLQUFiO0FBRUEsRUFKRDs7QUFNQTs7Ozs7QUFLQVQsUUFBT1UsVUFBUCxHQUFvQixVQUFVSCxJQUFWLEVBQWdCOztBQUVuQyxNQUFNSSxRQUFRWCxPQUFPRyxJQUFQLENBQVlTLE9BQVosQ0FBb0JMLElBQXBCLENBQWQ7O0FBRUEsTUFBSUksU0FBUyxDQUFiLEVBQWdCOztBQUVmWCxVQUFPRyxJQUFQLENBQVlVLE1BQVosQ0FBbUJGLEtBQW5CLEVBQTBCLENBQTFCO0FBRUE7QUFFRCxFQVZEO0FBWUEsQ0FuREQ7O0FBcURBRyxRQUFRQyxNQUFSLENBQWUsTUFBZixFQUNFQyxTQURGLENBQ1ksWUFEWixFQUMwQjtBQUN4QkMsY0FBYSwyQ0FEVztBQUV4QkMsYUFBWW5CO0FBRlksQ0FEMUIiLCJmaWxlIjoidG9waWNzL2NvbXBvbmVudHMvaGVyb190cmVlL2hlcm9MaXN0LmNvbXBvbmVudC5qcyIsInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xuXG5jb25zdCBIZXJvTGlzdENvbnRyb2xsZXIgPSBmdW5jdGlvbiAoJHNjb3BlLCAkZWxlbWVudCwgJGF0dHJzKSB7XG5cdFxuXHQkc2NvcGUubGlzdCA9IFtcblx0XHR7XG5cdFx0XHRuYW1lOiBcIlN1cGVybWFuXCIsXG5cdFx0XHRsb2NhdGlvbjogXCJcIlxuXHRcdH0sXG5cdFx0e1xuXHRcdFx0bmFtZTogXCJCYXRtYW5cIixcblx0XHRcdGxvY2F0aW9uOiBcIldheW5lIE1hbm9yXCJcblx0XHR9LFxuXHRcdHtcblx0XHRcdG5hbWU6IFwiQXF1YW1hblwiLFxuXHRcdFx0bG9jYXRpb246IFwiQmFoYW1hIEJyZWV6ZVwiXG5cdFx0fSxcblx0XHR7XG5cdFx0XHRuYW1lOiBcIkdyZWVuIExhbnRlcm5cIixcblx0XHRcdGxvY2F0aW9uOiBcIkdyZWVuIFBlYWNlIEhRXCJcblx0XHR9XG5cdF07XG5cdFxuXHQvKipcblx0ICogVXBkYXRlcyBhIGhlcm8gaW5mbyBmcm9tIHRoZSBsaXN0XG5cdCAqIEBwYXJhbSBoZXJvIFRoZSBoZXJvIHRvIHVwZGF0ZVxuXHQgKiBAcGFyYW0gcHJvcCBUaGUgcHJvcGVydHkgb2YgdGhlIGhlcm8gdG8gdXBkYXRlXG5cdCAqIEBwYXJhbSB2YWx1ZSBUaGUgdmFsdWUgdG8gYXNzaWduZWQgdG8gdGhlIHByb3BlcnR5IHRvIHVwZGF0ZVxuXHQgKiBAcmV0dXJuc1xuXHQgKi9cblx0JHNjb3BlLnVwZGF0ZUhlcm8gPSBmdW5jdGlvbiAoaGVybywgcHJvcCwgdmFsdWUpIHtcblx0XHRcblx0XHRoZXJvW3Byb3BdID0gdmFsdWU7XG5cdFx0XG5cdH07XG5cdFxuXHQvKipcblx0ICogRGVsZXRlIGEgaGVybyBmcm9tIHRoZSBsaXN0LlxuXHQgKiBAcGFyYW0gaGVybyBUaGUgaGVybyB0byBkZWxldGUgZnJvbSB0aGUgbGlzdFxuXHQgKiBAcmV0dXJuc1xuXHQgKi9cblx0JHNjb3BlLmRlbGV0ZUhlcm8gPSBmdW5jdGlvbiAoaGVybykge1xuXHRcdFxuXHRcdGNvbnN0IGluZGV4ID0gJHNjb3BlLmxpc3QuaW5kZXhPZihoZXJvKTtcblx0XHRcblx0XHRpZiAoaW5kZXggPj0gMCkge1xuXHRcdFx0XG5cdFx0XHQkc2NvcGUubGlzdC5zcGxpY2UoaW5kZXgsIDEpO1xuXHRcdFx0XG5cdFx0fVxuXHRcdFxuXHR9O1xuXHRcbn07XG5cbmFuZ3VsYXIubW9kdWxlKFwibWFpblwiKVxuXHQuY29tcG9uZW50KFwiZGhIZXJvTGlzdFwiLCB7XG5cdFx0dGVtcGxhdGVVcmw6IFwidG9waWNzL2NvbXBvbmVudHMvaGVyb190cmVlL2hlcm9MaXN0Lmh0bWxcIixcblx0XHRjb250cm9sbGVyOiBIZXJvTGlzdENvbnRyb2xsZXJcblx0fSk7XG4iXX0=

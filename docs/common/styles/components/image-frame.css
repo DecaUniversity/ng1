@@ -1,0 +1,18 @@
+.image-frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 15px;
+  padding: 15px; }
+  .image-frame figure {
+    background: #820002;
+    padding: 15px; }
+  .image-frame img {
+    height: 300px; }
+  .image-frame figcaption {
+    margin-top: 7.5px;
+    font-size: 85%;
+    font-style: italic; }
