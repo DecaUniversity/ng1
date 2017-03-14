@@ -1,10 +1,17 @@
 @import "common/styles/reset";
 @import "common/styles/constants";
 
-br {
-	margin: 10px 0;
-	display: block;
-	content: " ";
+body {
+	
+	margin: 0 $standard-margin;
+	
+}
+
+.bold {
+	
+	color: black;
+	font-weight: bolder;
+	
 }
 
 .area-label {
@@ -17,145 +24,4 @@ br {
 
 	padding: $standard-padding;
 
-}
-
-.io-bar {
-	display: flex;
-	align-items: center;
-	
-	height: 40px;
-	margin: 10px 0;
-	padding: 0;
-	
-	label {
-		color: white;
-	}
-	
-	button {
-		height: 100%;
-		padding: 0 15px;
-		
-		color: white;
-		background: #8B0000;
-		
-		outline: none;
-	}
-	
-	input {
-		height: 100%;
-		padding: 0 10px;
-		
-		color: black;
-		background: white;
-		
-		outline: none;
-	}
-	
-	* {
-		margin-right: 15px;
-	}
-	
-	:last-child {
-		margin: 0;
-	}
-}
-
-// Pane Experiment
-
-.tab-bar {
-	
-	>ul {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-		background-color: white;
-		
-		 li {
-			 float: left;
-			 border-bottom: 5px solid $red-wine;
-		 }
-		
-		 li:first-child {
-			 border-left: 5px solid $red-wine;
-		 }
-		
-		 li:last-child {
-			 border-right: 5px solid $red-wine;
-		 }
-		
-		 li a {
-			 display: block;
-			 color: black;
-			 text-align: center;
-			 padding: 14px 16px;
-			 text-decoration: none;
-			 font-family: $space-mono;
-			
-		 }
-		
-		 li a:hover {
-			 background: $cherry-wine;
-			 color: white;
-		 }
-		
-		 li.activeTab {
-			 background: $red-wine;
-			 color: white;
-			
-			 a {
-				 color: white;
-			 }
-			
-			 a:hover {
-				 background: $red-wine;
-			 }
-			
-		 }
-		 
-	}
-}
-
-.scope-video {
-	
-	display: flex;
-	align-items: center;
-	
-	height: 325px;
-	width: 100%;
-	
-	background: navy;
-	
-}
-
-.embedVideo {
-	padding: 10px;
-}
-
-.highlightTerm {
-	
-	background: $red-wine;
-	color: white;
-	padding: 0 5px;
-}
-
-div.inline-img {
-	
-	display: flex;
-	justify-content: center;
-	
-	margin: 15px;
-	
-	img {
-		
-		height: 250px;
-		
-	}
-	
-	figcaption {
-		
-		font-style: italic;
-		
-	}
-	
 }

@@ -1,0 +1,11 @@
+@import "../constants";
+
+.video-frame {
+	
+	margin: $standard-margin;
+	//padding: $standard-padding;
+	
+	border: $standard-padding inset $red-wine;
+	background: black;
+	
+}
