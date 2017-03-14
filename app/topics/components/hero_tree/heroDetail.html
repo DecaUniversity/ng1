@@ -17,10 +17,10 @@
 		<dh-editable-field
 				field-label="Location"
 				field-value="$ctrl.location"
-				on-update="$ctrl.update('location', value)">
+				on-update="$ctrl.update('location', value)"
+				on-delete="$ctrl.delete()">
 		</dh-editable-field>
-		<button class="first-ui-element" ng-click="$ctrl.delete()">Delete</button>
-	
+		
 	</div>
 	
 </div>

@@ -24,6 +24,12 @@ const EditableFieldController = function ($scope, $element, $attrs) {
 		
 	};
 	
+	ctrl.delete = function () {
+		
+		ctrl.onDelete();
+		
+	};
+	
 	ctrl.reset = function () {
 		
 		ctrl.fieldValue = ctrl.fieldValueCopy;
@@ -60,6 +66,7 @@ angular.module("main")
 			fieldValue: "<",
 			// ? assigns the property as optional.
 			fieldType: "@?",
-			onUpdate: "&"
+			onUpdate: "&",
+			onDelete: "&"
 		}
 	});
