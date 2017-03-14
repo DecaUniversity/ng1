@@ -120,6 +120,15 @@ dh-zone {
 			
 		}
 		
+		.highlightTerm {
+			
+			display: inline;
+			background: $red-wine;
+			color: white;
+			padding: $standard-padding / 4 $standard-padding / 2;
+			
+		}
+		
 		.toast {
 			
 			background: black;
