@@ -1,10 +1,10 @@
 @import "common/styles/reset";
 @import "common/styles/constants";
 
-br {
-	margin: 10px 0;
-	display: block;
-	content: " ";
+body {
+	
+	margin: 0 $standard-margin;
+	
 }
 
 .bold {
@@ -24,11 +24,4 @@ br {
 
 	padding: $standard-padding;
 
-}
-
-.highlightTerm {
-	
-	background: $red-wine;
-	color: white;
-	padding: 0 5px;
 }
