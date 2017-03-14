@@ -1,7 +1,13 @@
 <div class="zone">
-	<span class="zone-label">{{$ctrl.zoneLabel}}</span>
-	<hr>
+	<div class="zone-header">
+		<span>
+			{{$ctrl.zoneLabel}}
+		</span>
+	</div>
 	
-	<div ng-transclude=""></div>
+	<div class="zone-body" ng-transclude=""></div>
+	
+	<!--<span class="zone-label"></span>-->
+	<!--<hr>-->
 	
 </div>
