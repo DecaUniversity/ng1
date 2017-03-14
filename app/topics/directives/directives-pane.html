@@ -21,16 +21,16 @@
 				<div class="io-bar">
 					<label>
 						Drink:
-						<input ng-model="drink"> (try Coke)
 					</label>
+					<input ng-model="drink"> (try Coke)
 				</div>
 				
 				<span ng-if="drink">I'd like to teach the world to sing in perfect harmony. I'd like to buy the world a <span class="highlightTerm" ng-bind="drink"></span> and keep it company.</span>
 				
-				<!--<div-->
-						<!--ng-if="drink.toLowerCase() === 'coke' || drink.toLowerCase() === 'cocacola' || drink.toLowerCase() === 'coca-cola'" class="flex-container-center">-->
-					<!--<iframe class="video-frame" width="560" height="315" src="https://www.youtube.com/embed/1VM2eLhvsSM?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>-->
-				<!--</div>-->
+				<div
+						ng-if="drink.toLowerCase() === 'coke' || drink.toLowerCase() === 'cocacola' || drink.toLowerCase() === 'coca-cola'" class="flex-container-center">
+					<iframe class="video-frame" width="560" height="315" src="https://www.youtube.com/embed/1VM2eLhvsSM?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+				</div>
 				
 			</div>
 			
@@ -46,9 +46,6 @@
 			</dh-zone-note>
 			
 			<div ng-controller="SimpleDirectiveController">
-				<p>
-					The following two sentences are created by using a directive as an element tag and as an attribute.
-				</p>
 				<dh-customer></dh-customer>
 			</div>
 			
@@ -77,12 +74,12 @@
 				</figure>
 			</div>
 			
+			<p>Using an isolate scope...</p>
+			
 			<div ng-controller="SimpleDirectiveController">
 				
 				<dh-better-customer info="bey"></dh-better-customer>
-				<br>
 				<dh-better-customer info="key"></dh-better-customer>
-				<br>
 				<dh-better-customer info="mey"></dh-better-customer>
 				
 				<div class="image-frame">
@@ -111,18 +108,20 @@
 		
 		<dh-zone-example>
 			
-			<p>Test</p>
-			
-			<div class="io-bar" ng-controller="SimpleDirectiveController">
-				<label>
-					<span>Date format:</span>
+			<div ng-controller="SimpleDirectiveController">
+				
+				<div class="io-bar" >
+					<label>
+						Date format:
+					</label>
 					<input ng-model="format">
-				</label>
+				</div>
+				
+				<p>Current time is:<span dh-current-time="format"></span></p>
+				
 			</div>
 			
-			<span>Current time is: <span dh-current-time="format"></span></span>
-			<span>Current time is: <span dh-current-time="format"></span></span>
-			<span>Current time is: <span dh-current-time="format"></span></span>
+		
 			
 			<dh-zone-note>
 				<p>
