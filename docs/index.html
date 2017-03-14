@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="main" ng-cloak="">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Push Recipe Test UI</title>
+		
+		<!-- For old IEs -->
+		<link rel="shortcut icon" href="common/favicon/favicon.ico" />
+		
+		<!-- For new browsers - multisize ico  -->
+		<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="common/favicon/favicon.ico">
+		
+		<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="common/favicon/favicon-152.png">
+		
+		<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="common/favicon/favicon-144.png">
+		
+		<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="common/favicon/favicon-120.png">
+		
+		<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="common/favicon/favicon-114.png">
+		
+		<!-- For iPhone 6+ -->
+		<link rel="apple-touch-icon-precomposed" sizes="180x180" href="common/favicon/favicon-180.png">
+		
+		<!-- For first- and second-generation iPad: -->
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="common/favicon/favicon-72.png">
+		
+		<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+		<link rel="apple-touch-icon-precomposed" href="common/favicon/favicon-57.png">
+		
+		<!-- For Old Chrome -->
+		<link rel="icon" href="common/favicon/favicon-32.png" sizes="32x32">
+		
+		<!-- For IE10 Metro -->
+		<meta name="msapplication-TileColor" content="#FFFFFF">
+		<meta name="msapplication-TileImage" content="favicon-144.png">
+		<meta name="theme-color" content="#ffffff">
+		
+		<!-- Chrome for Android -->
+		<link rel="manifest" href="common/favicon/manifest.json">
+		<link rel="icon" sizes="192x192" href="common/favicon/favicon-192.png">
+		
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Ubuntu|Oswald|Racing+Sans+One|Roboto|Space+Mono:400,700|Work+Sans:500" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		      rel="stylesheet">
+		
+		<!-- bower:css-->
+		<!-- endinject -->
+		
+		<!-- inject:css-->
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="common/styles/animation.css">
+		<link rel="stylesheet" href="common/styles/containers.css">
+		<link rel="stylesheet" href="lib/angular/angular-csp.css">
+		<link rel="stylesheet" href="common/styles/components/image-frame.css">
+		<link rel="stylesheet" href="common/styles/components/io-bar.css">
+		<link rel="stylesheet" href="common/styles/components/tab-bar.css">
+		<link rel="stylesheet" href="common/styles/components/video-frame.css">
+		<link rel="stylesheet" href="common/styles/decorators/text-formatting.css">
+		<link rel="stylesheet" href="topics/animations/styles/rite.css">
+		<link rel="stylesheet" href="topics/components/zone/zone.css">
+		<link rel="stylesheet" href="topics/scopes/people/styles/faces.css">
+		<link rel="stylesheet" href="topics/scopes/people/styles/people.css">
+		<!-- endinject -->
+	
+	
+	
+	</head>
+	<body>
+		<div class="container" ng-controller="MainController">
+			
+			<h1 class="area-label">NG-1</h1>
+			
+			<dh-tabs default-tab="3">
+				
+				<ng-include ng-repeat="pane in panes track by $index" src="pane"></ng-include>
+			
+			</dh-tabs>
+		
+		</div>
+		
+		<!-- bower:js-->
+		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular-animate/angular-animate.js"></script>
+		<!-- endinject -->
+		
+		<!-- inject:js -->
+		<script src="main.app.js"></script>
+		<script src="topics/directives/scripts/simple-directive.module.js"></script>
+		<script src="topics/scopes/scripts/family.module.js"></script>
+		<script src="topics/scopes/scripts/scopes.module.js"></script>
+		<script src="topics/directives/components/better-customer.directive.js"></script>
+		<script src="topics/directives/components/customer.directive.js"></script>
+		<script src="topics/animations/scripts/notify.animated.service.js"></script>
+		<script src="topics/services/notify.service.js"></script>
+		<script src="main.controller.js"></script>
+		<script src="topics/animations/scripts/animatedServiceSample.controller.js"></script>
+		<script src="topics/controllers/controllers.controller.js"></script>
+		<script src="topics/directives/scripts/directives.controller.js"></script>
+		<script src="topics/directives/scripts/simple-directive.controller.js"></script>
+		<script src="topics/scopes/scripts/family.controller.js"></script>
+		<script src="topics/services/convertion.controller.js"></script>
+		<script src="topics/components/hero/hero.component.js"></script>
+		<script src="topics/components/hero_tree/editableField.component.js"></script>
+		<script src="topics/components/hero_tree/heroDetail.component.js"></script>
+		<script src="topics/components/hero_tree/heroList.component.js"></script>
+		<script src="topics/components/tab-pane/dh-tabs.component.js"></script>
+		<script src="topics/components/tab-pane/pane.component.js"></script>
+		<script src="topics/components/zone/zone-example.component.js"></script>
+		<script src="topics/components/zone/zone-note.component.js"></script>
+		<script src="topics/components/zone/zone-warning.component.js"></script>
+		<script src="topics/components/zone/zone.component.js"></script>
+		<script src="topics/directives/scripts/current-time.js"></script>
+		<!-- endinject -->
+	
+	</body>
+</html>
