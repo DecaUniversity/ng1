@@ -50,14 +50,3 @@ const TabsController = function () {
 	};
 	
 };
-
-angular.module("main")
-	.component("dhTabs", {
-		
-		transclude: true,
-		controller: TabsController,
-		templateUrl: "topics/components/tab-pane/dh-tabs.html",
-		bindings: {defaultTab: "<"}
-		
-	});
-
