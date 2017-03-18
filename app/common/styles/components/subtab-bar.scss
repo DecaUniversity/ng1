@@ -1,30 +1,30 @@
 @import "../constants";
 
-.tab-bar {
-
+.subtab-bar {
+	
 	>ul {
 		list-style-type: none;
 		margin: 0;
-		padding: 0 0 $standard-padding;
+		padding: 0;
 		overflow: hidden;
-		background-color: $red-wine;
-
+		
 		li {
-			display: block;
 			float: left;
 			background: $red-wine;
 			color: white;
-			border-right: $standard-border-size solid $red-wine;
+			border: $standard-border-size / 2 solid $red-wine;
+			margin-left: $standard-margin;
+			
 		}
-
+		
 		li:first-child {
-			border-left: $standard-border-size solid $red-wine;
+			margin-left: 0;
 		}
-
+		
 		li:last-child {
-			border-right: $standard-border-size solid $red-wine;
+			
 		}
-
+		
 		li a {
 			display: block;
 			color: white;
@@ -32,30 +32,27 @@
 			padding: 14px 16px;
 			text-decoration: none;
 			font-family: $space-mono;
-
+			
 		}
-
+		
 		li a:hover {
 			background: $cherry-wine;
 			color: white;
 		}
-
+		
 		li.activeTab {
 			background: white;
 			color: $red-wine;
-
+			
 			a {
 				color: $red-wine;
 			}
-
+			
 			a:hover {
 				background: white;
-				color: $red-wine;
 			}
-
+			
 		}
-
+		
 	}
 }
-
-
