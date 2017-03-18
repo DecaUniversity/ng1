@@ -55,10 +55,30 @@ angular.module("SimpleDirective")
 				
 			}
 			
-			scope.$watch(attrs.dhCurrentTime, function (value) {
-
+			scope.$watch(attrs.dhCurrentTime, function (value, oldVal) {
+				
+				console.log(`value: ${value}`);
+				
+				if (value === oldVal) {
+					
+					/**
+					 * This would detect the initialization of the watcher.
+					 * If we were to prevent format to be updated to the attributes value
+					 * during initialization, the time format would be the default new Date()
+					 * return value - even if there if the model that is being mapped through the
+					 * attribute bound to the directive has a value.
+					 * The format won't change till the model actually is changed!
+					 * This is not desired for this decorator since we want to be able to
+					 * present the model with whatever default format the outer controller
+					 * has specified.
+					 */
+					console.log(`Initialized scope.$watch on dhCurrentTime`);
+					
+				}
+				
 				format = value;
 				updateTime();
+			
 
 			});
 
