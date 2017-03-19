@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("SimpleDirective")
+angular.module("directives")
 	.directive("dhCurrentTime", ["$interval", "dateFilter", function ($interval, dateFilter) {
 		
 		function link (scope, element, attrs) {

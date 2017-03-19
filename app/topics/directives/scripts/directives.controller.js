@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("main").
+angular.module("directives").
 	controller("DirectivesController", ["$scope", function ($scope) {
 		
 		$scope.drink = "";
