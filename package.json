@@ -15,6 +15,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
     "gulp-eslint": "^3.0.1",
     "gulp-inject": "^4.2.0",
     "gulp-plumber": "^1.1.0",
@@ -24,12 +25,14 @@
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
     "main-bower-files": "^2.13.1",
-    "ngfinder": "^2.0.2",
-    "ngsource": "^1.0.1",
+    "ngsource": "^1.0.2",
     "path": "^0.12.7",
     "run-sequence": "^1.2.2"
   },
   "scripts": {
     "start": "yarn && bower install && gulp"
+  },
+  "dependencies": {
+    "bootstrap-alerts": "^1.2.1"
   }
 }
