@@ -55,6 +55,11 @@ dh-zone {
       display: inline;
       font-family: "Source Code Pro", sans-serif;
       background: #DE8585; }
+    dh-zone .zone-body .highlightTerm {
+      display: inline;
+      background: #820002;
+      color: white;
+      padding: 3.75px 7.5px; }
     dh-zone .zone-body .toast {
       background: black; }
 
