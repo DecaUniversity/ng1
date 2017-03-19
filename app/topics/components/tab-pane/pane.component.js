@@ -1,16 +1,6 @@
 "use strict";
 
-const PaneController = function () {
-	
-	const ctrl = this;
-	
-	ctrl.$onInit = function () {
-		
-		ctrl.tabsCtrl.addPane(this);
-		
-	};
-	
-};
+/* global PaneController */
 
 angular.module("main")
 	.component("dhPane", {

@@ -1,5 +1,7 @@
 "use strict";
 
+/* global TabsController */
+
 angular.module("main")
 	.component("dhTabs", {
 		
@@ -9,4 +11,3 @@ angular.module("main")
 		bindings: {defaultTab: "<"}
 		
 	});
-

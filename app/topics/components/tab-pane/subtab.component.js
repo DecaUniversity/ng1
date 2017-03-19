@@ -1,5 +1,7 @@
 "use strict";
 
+/* global TabsController */
+
 angular.module("main")
 	.component("dhSubTabs", {
 		

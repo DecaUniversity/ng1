@@ -3,10 +3,6 @@
 angular.module("directives")
 	.directive("dhCustomer", function () {
 		
-		return {
-			
-			templateUrl: "topics/directives/components/customer.html"
-			
-		}
+		return {templateUrl: "topics/directives/components/customer.html"};
 		
 	});

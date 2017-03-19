@@ -3,7 +3,7 @@
 angular.module("directives")
 	.directive("dhCurrentTime", ["$interval", "dateFilter", function ($interval, dateFilter) {
 		
-		function link (scope, element, attrs) {
+		const link = function (scope, element, attrs) {
 			
 			/**
 			 * An element in the DOM gets this directive assigned.
@@ -46,14 +46,15 @@ angular.module("directives")
 			 */
 			
 			
-			let format;
-			let timeoutId;
+			let format = null;
+			let timeoutId = null;
+			const intervalTime = 1000;
 			
-			function updateTime() {
+			const updateTime = function () {
 				
 				element.text(dateFilter(new Date(), format));
 				
-			}
+			};
 			
 			scope.$watch(attrs.dhCurrentTime, function (value, oldVal) {
 				
@@ -63,16 +64,17 @@ angular.module("directives")
 					
 					/**
 					 * This would detect the initialization of the watcher.
-					 * If we were to prevent format to be updated to the attributes value
-					 * during initialization, the time format would be the default new Date()
-					 * return value - even if there if the model that is being mapped through the
+					 * If we were to prevent format to be updated to the attributes
+					 * value during initialization, the time format would be the
+					 * default new Date() return value - even if there if the model
+					 * that is being mapped through the
 					 * attribute bound to the directive has a value.
 					 * The format won't change till the model actually is changed!
 					 * This is not desired for this decorator since we want to be able to
 					 * present the model with whatever default format the outer controller
 					 * has specified.
 					 */
-					console.log(`Initialized scope.$watch on dhCurrentTime`);
+					console.log("Initialized scope.$watch on dhCurrentTime");
 					
 				}
 				
@@ -93,14 +95,10 @@ angular.module("directives")
 				
 				updateTime();
 				
-			}, 1000);
+			}, intervalTime);
 			
-		}
+		};
 		
-		return {
-			
-			link
-			
-		}
+		return {link};
 		
 	}]);

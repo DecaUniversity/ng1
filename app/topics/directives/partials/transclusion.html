@@ -5,7 +5,7 @@
 		This is a directive that can transclude but has an isolate scope.
 		
 		
-		<div ng-controller="DirectivesController">
+		<div class="flex-container-center" ng-controller="DirectivesController">
 			
 			<dh-scoped-frame>
 				<img ng-src="{{painting}}">
@@ -20,7 +20,7 @@
 		
 		This is a directive that can transclude but it doesn't have an isolate scope.
 		
-		<div ng-controller="DirectivesController">
+		<div class="flex-container-center" ng-controller="DirectivesController">
 			
 			<dh-unscoped-frame>
 				<img ng-src="{{painting}}">
@@ -41,9 +41,9 @@
 			Let's add some buttons for interactivity and allow someone using the directive to bind their own behavior to it.
 		</p>
 		
-		<div ng-controller="DirectivesController">
-			
-			Click the painting to reveal its painter. Click it again to bring it back.
+		<p>Click the painting to reveal its painter. Click it again to bring it back.</p>
+		
+		<div class="flex-container-center" ng-controller="DirectivesController">
 			
 			<dh-interactive-frame on-flip="flipflop()">
 				<img class="landscape" ng-src="{{source}}">

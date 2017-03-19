@@ -31,7 +31,7 @@ angular.module("directives")
 			
 		};
 		
-		$scope.format = "hh:mm:ss"
+		$scope.format = "hh:mm:ss";
 		
 	}]);
 
@@ -44,7 +44,7 @@ angular.module("directives")
 			name: "Beyoncé Knowles",
 			address: "Destiny's Child Hwy"
 			
-		}
+		};
 		
 	}]);
 
@@ -56,7 +56,7 @@ angular.module("directives")
 			name: "Kelly Rowland",
 			address: "Destiny's Child Blvd"
 			
-		}
+		};
 		
 	}]);
 
@@ -68,6 +68,6 @@ angular.module("directives")
 			name: "Michelle Williams",
 			address: "Destiny's Child Lane"
 			
-		}
+		};
 		
 	}]);
