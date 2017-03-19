@@ -587,6 +587,7 @@ gulp.task('inject:docs', function () {
 			target: "docs",
 			ignore: "docs/lib"
 		}, [
+			"!docs/lib/**/*",
 			"docs/**/*.css"
 		]);
 		
@@ -605,7 +606,7 @@ gulp.task('inject:docs', function () {
 		
 	});
 	
-	let injectSrc = gulp.src(ngsource.get(), {read: false});
+	let injectSrc = gulp.src(files, {read: false});
 	
 	return gulp.src('docs/index.html')
 		.pipe(injector(injectSrc, injectOptions))
