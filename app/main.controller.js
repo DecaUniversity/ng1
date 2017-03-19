@@ -16,7 +16,8 @@ angular.module("main")
 			"topics/directives/partials/normalization.html",
 			"topics/directives/partials/scoping.html",
 			"topics/directives/partials/dom-manipulation.html",
-			"topics/directives/partials/transclusion.html"
+			"topics/directives/partials/transclusion.html",
+			"topics/directives/partials/event-listener.html"
 		];
 	
 		$scope.name = "Caroline";

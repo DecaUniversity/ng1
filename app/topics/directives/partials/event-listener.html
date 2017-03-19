@@ -1,0 +1,29 @@
+<dh-sub-pane title="event listeners">
+	
+	<dh-zone-example>
+		
+		<p>
+			Let's create a directive that lets the user drag an element.
+		</p>
+		
+		<p>Drag any of the paintings anywhere in the browser window!</p>
+		
+		<div ng-controller="DirectivesController">
+			
+			<dh-scoped-frame dh-draggable="">
+				<img ng-src="{{painting}}">
+			</dh-scoped-frame>
+			
+			<dh-scoped-frame dh-draggable="">
+				<img ng-src="{{painting2}}">
+			</dh-scoped-frame>
+			
+			<dh-scoped-frame dh-draggable="">
+				<img ng-src="{{painting3}}">
+			</dh-scoped-frame>
+			
+		</div>
+		
+	</dh-zone-example>
+	
+</dh-sub-pane>

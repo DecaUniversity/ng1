@@ -13,6 +13,8 @@ angular.module("directives")
 		};
 	
 		$scope.painting = "topics/directives/assets/starry.jpg";
+		$scope.painting2 = "topics/directives/assets/sunday.jpg";
+		$scope.painting3 = "topics/directives/assets/scream.jpg";
 	
 		$scope.paintingAnimated = "topics/directives/assets/night.gif";
 		$scope.painterAnimated = "topics/directives/assets/van.gif";
