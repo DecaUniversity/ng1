@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("SimpleDirective")
+angular.module("directives")
 	.directive("dhScopedFrame", function () {
 		
 		return {
@@ -19,7 +19,7 @@ angular.module("SimpleDirective")
 		
 	});
 
-angular.module("SimpleDirective")
+angular.module("directives")
 	.directive("dhUnscopedFrame", function () {
 		
 		return {

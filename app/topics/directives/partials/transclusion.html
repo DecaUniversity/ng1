@@ -1,6 +1,7 @@
 <dh-sub-pane title="transclusion">
 	
 	<dh-zone-example>
+		
 		This is a directive that can transclude but has an isolate scope.
 		
 		
@@ -12,6 +13,13 @@
 		
 		</div>
 		
+		<dh-zone-note>
+			The outer <span class="inlineTag">$scope.painting</span> is "The Starry Night.
+			The local <span class="inlineTag">scope.painting</span> holds the "Mona Lisa". Since, the directive defines its own scope, the transclusion evaluates <span class="inlineTag">painting</span> against the outer scope.
+		</dh-zone-note>
+		
+		This is a directive that can transclude but it doesn't have an isolate scope.
+		
 		<div ng-controller="DirectivesController">
 			
 			<dh-unscoped-frame>
@@ -19,7 +27,32 @@
 			</dh-unscoped-frame>
 		
 		</div>
+		
+		<dh-zone-note>
+			The outer <span class="inlineTag">$scope.painting</span> is "The Starry Night.
+			There is no local scope. But within the <span class="inlineTag">link</span> function, <span class="inlineTag">scope.painting</span> holds the "Mona Lisa". Since, the directive doesn't define its own scope, <span class="inlineTag">scope.painting</span> overwrites the <span class="inlineTag">painting</span> from the outer scope.
+		</dh-zone-note>
+		
+		<dh-zone-warning>
+			Only use <span class="inlineTag">transclude: true</span> when you want to create a directive that wraps arbitrary content.
+		</dh-zone-warning>
+		
+		<p>
+			Let's add some buttons for interactivity and allow someone using the directive to bind their own behavior to it.
+		</p>
+		
+		<div ng-controller="DirectivesController">
+			
+			Click the painting to reveal its painter. Click it again to bring it back.
+			
+			<dh-interactive-frame on-flip="flipflop()">
+				<img class="landscape" ng-src="{{source}}">
+			</dh-interactive-frame>
+			
+		</div>
+		
 	
+		
 	</dh-zone-example>
 
 

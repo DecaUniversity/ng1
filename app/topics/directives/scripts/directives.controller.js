@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("main").
+angular.module("directives").
 	controller("DirectivesController", ["$scope", function ($scope) {
 		
 		$scope.drink = "";
@@ -14,4 +14,27 @@ angular.module("main").
 	
 		$scope.painting = "topics/directives/assets/starry.jpg";
 	
+		$scope.paintingAnimated = "topics/directives/assets/night.gif";
+		$scope.painterAnimated = "topics/directives/assets/van.gif";
+		
+		
+		
+		let flip = false;
+		$scope.source = $scope.paintingAnimated;
+		
+		$scope.flipflop = function () {
+			
+			if (flip) {
+				
+				$scope.source = $scope.paintingAnimated;
+				flip = false;
+				
+			} else {
+				
+				$scope.source = $scope.painterAnimated;
+				flip = true;
+				
+			}
+			
+		};
 }]);

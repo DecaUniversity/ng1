@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("SimpleDirective")
+angular.module("directives")
 	.directive("dhCustomer", function () {
 		
 		return {
