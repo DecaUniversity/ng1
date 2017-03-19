@@ -50,3 +50,6 @@ const TabsController = function () {
 	};
 	
 };
+
+angular.module("main")
+	.controller("TabsController", TabsController);

@@ -7,11 +7,9 @@ angular.module("directives")
 
 			restrict: "E",
 			transclude: true,
-			scope: {
-				flip: '&onFlip'
-			},
+			scope: {flip: "&onFlip"},
 			templateUrl: "topics/directives/scripts/interactive-frame.html"
 
-		}
+		};
 
 	});

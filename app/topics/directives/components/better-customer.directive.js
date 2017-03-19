@@ -6,13 +6,9 @@ angular.module("directives")
 		return {
 			
 			restrict: "E",
-			scope: {
-				
-				customerInfo: "=info"
-				
-			},
+			scope: {customerInfo: "=info"},
 			templateUrl: "topics/directives/components/better-customer.html"
 			
-		}
+		};
 		
 	});
