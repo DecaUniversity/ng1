@@ -53,8 +53,7 @@ dh-zone {
       padding: 15px; }
     dh-zone .zone-body span.inlineTag {
       display: inline;
-      font-family: "Source Code Pro", sans-serif;
-      background: #DE8585; }
+      font-family: "Source Code Pro", sans-serif; }
     dh-zone .zone-body .highlightTerm {
       display: inline;
       background: #820002;
@@ -63,22 +62,35 @@ dh-zone {
     dh-zone .zone-body .toast {
       background: black; }
 
-.zone-body dh-zone-example {
-  margin: 7.5px 0; }
-
-.zone-body dh-zone-example:first-child {
-  margin-top: 0; }
-
-.zone-body dh-zone-example:last-child {
-  margin-bottom: 0; }
-
-.zone-body dh-zone-example:only-child {
-  margin: 0; }
-
-dh-zone-example {
+dh-zone-example > div {
+  margin-top: 15px;
+  background: red;
   background: #D1343A;
   padding: 15px;
   border: solid 2.5px black; }
+
+dh-zone-note {
+  display: block;
+  padding: 15px;
+  background: #DE8585;
+  color: black;
+  border: solid 2.5px black; }
+
+dh-zone-warning {
+  display: block;
+  padding: 15px;
+  background: white;
+  border: solid 2.5px black;
+  color: black; }
+
+dh-zone-example > div:first-child {
+  margin-top: 15px; }
+
+dh-zone-example > div:last-child {
+  margin-bottom: 0; }
+
+dh-zone-example > div:only-child {
+  margin-top: 15px; }
 
 dh-zone-example > div p:nth-child(n) {
   display: block;
@@ -124,13 +136,6 @@ dh-zone-example > div input.sentence-input {
 
 dh-zone-example > div hr {
   border: inset 1.25px #820002; }
-
-dh-zone-note {
-  display: block;
-  padding: 15px;
-  background: #DE8585;
-  color: black;
-  border: solid 2.5px black; }
 
 dh-zone-note > div p:nth-child(n) {
   display: block;
@@ -179,13 +184,6 @@ dh-zone-example dh-zone-note:last-child {
 
 dh-zone-example dh-zone-note:only-child {
   margin: 0; }
-
-dh-zone-warning {
-  display: block;
-  padding: 15px;
-  background: white;
-  border: solid 2.5px black;
-  color: black; }
 
 dh-zone-warning > div p:nth-child(n) {
   display: block;

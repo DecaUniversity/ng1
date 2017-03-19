@@ -1,0 +1,30 @@
+.subtab-bar > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+  .subtab-bar > ul li {
+    float: left;
+    background: #820002;
+    color: white;
+    border: 2.5px solid #820002;
+    margin-left: 15px; }
+  .subtab-bar > ul li:first-child {
+    margin-left: 0; }
+  .subtab-bar > ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-family: "Space Mono", monospace; }
+  .subtab-bar > ul li a:hover {
+    background: #D1343A;
+    color: white; }
+  .subtab-bar > ul li.activeTab {
+    background: white;
+    color: #820002; }
+    .subtab-bar > ul li.activeTab a {
+      color: #820002; }
+    .subtab-bar > ul li.activeTab a:hover {
+      background: white; }

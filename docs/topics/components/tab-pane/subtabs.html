@@ -1,0 +1,8 @@
+<div class="subtab-bar">
+	<ul>
+		<li ng-repeat="pane in $ctrl.panes track by $index" ng-class="{paneTab: true, activeTab:pane.selected}">
+			<a href="" ng-click="$ctrl.select(pane)">{{pane.title}}</a>
+		</li>
+	</ul>
+	<div ng-transclude=""></div>
+</div>
