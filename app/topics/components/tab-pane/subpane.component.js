@@ -1,5 +1,7 @@
 "use strict";
 
+/* global PaneController */
+
 angular.module("main")
 	.component("dhSubPane", {
 		transclude: true,

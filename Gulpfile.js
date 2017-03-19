@@ -10,6 +10,7 @@ const watch = require("gulp-watch");
 
 const sass = require("gulp-sass");
 const postcss = require("gulp-postcss");
+const concat = require("gulp-concat");
 const autoprefixer = require("autoprefixer");
 const eslint = require("gulp-eslint");
 const babel = require("gulp-babel");
@@ -177,6 +178,7 @@ gulp.task('sass', function() {
 	return gulp.src(srcFiles.scss)
 		.pipe(sass().on("error", sass.logError))
 		.pipe(postcss(processors))
+		.pipe(concat("maybelline.css"))
 		.pipe(gulp.dest(destDir.scss));
 	
 });
