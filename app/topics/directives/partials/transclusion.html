@@ -1,0 +1,26 @@
+<dh-sub-pane title="transclusion">
+	
+	<dh-zone-example>
+		This is a directive that can transclude but has an isolate scope.
+		
+		
+		<div ng-controller="DirectivesController">
+			
+			<dh-scoped-frame>
+				<img ng-src="{{painting}}">
+			</dh-scoped-frame>
+		
+		</div>
+		
+		<div ng-controller="DirectivesController">
+			
+			<dh-unscoped-frame>
+				<img ng-src="{{painting}}">
+			</dh-unscoped-frame>
+		
+		</div>
+	
+	</dh-zone-example>
+
+
+</dh-sub-pane>

@@ -11,6 +11,13 @@ angular.module("main")
 			"topics/components/components-pane.html",
 			"topics/animations/animations-pane.html"
 		];
+		
+		$scope.directivePanes = [
+			"topics/directives/partials/normalization.html",
+			"topics/directives/partials/scoping.html",
+			"topics/directives/partials/dom-manipulation.html",
+			"topics/directives/partials/transclusion.html"
+		];
 	
 		$scope.name = "Caroline";
 		

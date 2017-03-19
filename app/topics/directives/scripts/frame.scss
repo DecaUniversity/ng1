@@ -1,0 +1,55 @@
+@import "../../../common/styles/constants";
+
+
+//Copyright (c) 2017 by Chris Smith (http://codepen.io/chris22smith/pen/PbBwjp)
+//
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+.frame {
+	
+	background-color:#ddc;
+	border-radius:2px;
+	border: $standard-border-size * 5 solid #eee;
+	border-top-color: #ddd;
+	border-bottom-color: #fff;
+	
+	box-shadow:0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
+	box-sizing:border-box;
+	
+	margin: $standard-margin;
+	padding:$standard-padding * 2;
+	
+	position:relative;
+	text-align:center;
+	
+	&:before {
+		
+		position:absolute;
+		
+		bottom:-$standard-border-size * 2;
+		right:-$standard-border-size * 2;
+		top:-$standard-border-size * 2;
+		left:-$standard-border-size * 2;
+		
+		border-radius:2px;
+		box-shadow:0 2px 5px 0 rgba(0,0,0,.25) inset;
+		
+		content: "";
+	}
+	
+	&:after {
+
+		bottom:-$standard-border-size * 3;
+		right:-$standard-border-size * 3;
+		top:-$standard-border-size * 3;
+		left:-$standard-border-size * 3;
+
+		border-radius:2px;
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+		content:"";
+		position:absolute;
+
+	}
+	
+}
