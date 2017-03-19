@@ -8,6 +8,8 @@
 
 .frame {
 	
+	display: inline-block;
+	
 	background-color:#ddc;
 	border-radius:2px;
 	border: $standard-border-size * 5 solid #eee;
