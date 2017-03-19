@@ -10,6 +10,8 @@ angular.module("main").
 			
 			return new Array($scope.strips);
 			
-		}
-		
+		};
+	
+		$scope.painting = "topics/directives/assets/starry.jpg";
+	
 }]);

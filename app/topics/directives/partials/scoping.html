@@ -1,0 +1,77 @@
+<dh-sub-pane title="scoping">
+	
+	<dh-zone-example>
+		
+		<dh-zone-note>
+			<p>
+				Use an element when creating a component that is in control of the template.
+				Use an attribute when you are decorating an existing element with new functionality.
+			</p>
+		</dh-zone-note>
+		
+		<div ng-controller="SimpleDirectiveController">
+			<dh-customer></dh-customer>
+		</div>
+		
+		<dh-zone-note>
+			<p>
+				Without an isolate scope, this simple directive needs a new controller every time to be able to display different data:
+			</p>
+		</dh-zone-note>
+		
+		<div ng-controller="BeyonceController">
+			<dh-customer></dh-customer>
+		</div>
+		
+		<div ng-controller="KellyController">
+			<dh-customer></dh-customer>
+		</div>
+		
+		<div ng-controller="MichelleController">
+			<dh-customer></dh-customer>
+		</div>
+		
+		<div class="image-frame">
+			<figure>
+				<img src="topics/directives/assets/bad.png">
+				<figcaption>That's not right! You can do better...</figcaption>
+			</figure>
+		</div>
+		
+		<p>Using an isolate scope...</p>
+		
+		<div ng-controller="SimpleDirectiveController">
+			
+			<dh-better-customer info="bey"></dh-better-customer>
+			<dh-better-customer info="key"></dh-better-customer>
+			<dh-better-customer info="mey"></dh-better-customer>
+			
+			<div class="image-frame">
+				<figure>
+					<img src="topics/directives/assets/walk.gif">
+					<figcaption>*drums* Hit me!</figcaption>
+				</figure>
+			</div>
+			
+			<div class="image-frame">
+				<figure>
+					<img src="topics/directives/assets/good.gif">
+					<figcaption>That's better!</figcaption>
+				</figure>
+			</div>
+			
+			<dh-zone-note>
+				<p>
+					The value =attr of the properties of the scope option object are normalized just like the names of directives.
+				</p>
+			</dh-zone-note>
+		
+		</div>
+		
+		<dh-zone-note>
+			Use the scope option to create isolate scopes when making components that you want to reuse throughout your app.
+		</dh-zone-note>
+	
+	</dh-zone-example>
+
+</dh-sub-pane>
