@@ -25,3 +25,9 @@ body {
 	padding: $standard-padding;
 
 }
+
+.container {
+	
+	display: flex;
+	flex-direction: column;
+}

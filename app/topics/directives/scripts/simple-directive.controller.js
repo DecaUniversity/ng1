@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("SimpleDirective")
+angular.module("directives")
 	.controller("SimpleDirectiveController", ["$scope", function ($scope) {
 		
 		$scope.customer = {
@@ -36,7 +36,7 @@ angular.module("SimpleDirective")
 	}]);
 
 
-angular.module("SimpleDirective")
+angular.module("directives")
 	.controller("BeyonceController", ["$scope", function ($scope) {
 		
 		$scope.customer = {
@@ -48,7 +48,7 @@ angular.module("SimpleDirective")
 		
 	}]);
 
-angular.module("SimpleDirective")
+angular.module("directives")
 	.controller("KellyController", ["$scope", function ($scope) {
 		
 		$scope.customer = {
@@ -60,7 +60,7 @@ angular.module("SimpleDirective")
 		
 	}]);
 
-angular.module("SimpleDirective")
+angular.module("directives")
 	.controller("MichelleController", ["$scope", function ($scope) {
 		
 		$scope.customer = {
