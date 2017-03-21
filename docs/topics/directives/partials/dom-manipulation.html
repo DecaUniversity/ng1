@@ -1,0 +1,32 @@
+<dh-sub-pane title="dom manipulation">
+	
+	<dh-zone-example>
+		
+		<div ng-controller="SimpleDirectiveController">
+			
+			<div class="io-bar" >
+				<label>
+					Date format:
+				</label>
+				<input ng-model="format">
+			</div>
+			
+			<p>Current time is:<span dh-current-time="format"></span></p>
+		
+		</div>
+		
+		<dh-zone-note>
+			After a watcher is registered with the scope, the listener function is called asynchronously (via $evalAsync) to initialize the watcher. In rare cases, this is undesirable because the listener is called when the result of watchExpression didn't change. To detect this scenario within the listener function, you can compare the newVal and oldVal. If these two values are identical (===) then the listener was called due to initialization.
+		</dh-zone-note>
+		
+		<dh-zone-note>
+			<p>
+				Directives should always clean up after themselves!
+				Use element.on("$destroy", ...) or scope.on("$destroy", ...) to run a clean up function.
+			</p>
+		</dh-zone-note>
+	
+	</dh-zone-example>
+
+
+</dh-sub-pane>
