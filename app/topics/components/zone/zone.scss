@@ -1,0 +1,408 @@
+@import "../../../common/styles/constants";
+
+$zone-label-font-size: 30px;
+$zone-example-font-size: 20px;
+$zone-warning-font-size: 15px;
+
+
+$text-selectors: (
+	p, span
+);
+
+@mixin text-spacer {
+	
+	@each $value in $text-selectors {
+		
+		#{(nth($value, 1))}:nth-child(n) {
+			
+			display: block;
+			margin: $standard-margin 0;
+			
+		}
+		
+		#{(nth($value, 1))}:first-child {
+			
+			display: block;
+			margin-top: 0;
+			margin-bottom: $standard-margin;
+			
+		}
+		
+		#{(nth($value, 1))}:last-child {
+			
+			display: block;
+			margin-top: $standard-margin;
+			margin-bottom: 0;
+			
+		}
+		
+		#{(nth($value, 1))}:only-child{
+			
+			display: block;
+			margin: 0;
+			
+		}
+		
+	}
+	
+}
+
+dh-zone {
+	
+	border: $standard-border-size $red-wine solid;
+	display: block;
+	
+	margin-top: $standard-margin;
+	
+	.zone-header {
+		
+		position: relative;
+		
+		display: flex;
+		justify-content: flex-start;
+		align-content: center;
+		align-items: center;
+		
+		padding: $standard-padding;
+		
+		background: white;
+		color: $red-wine;
+		font-family: $racing-sans-one;
+		font-size: $zone-label-font-size;
+		
+		height: 90px - ($standard-padding * 2);
+		
+		
+	}
+	
+	.zone-header:after {
+		
+		content: "";
+		position: absolute;
+		left: $standard-margin;
+		right: $standard-margin;
+		bottom: 0;
+		border-bottom: $standard-border-size $red-wine solid;
+		width: calc(100% - 30px);
+		
+	}
+	
+	.zone-body {
+		
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		
+		justify-content: space-around;
+		
+		padding: $standard-padding;
+		
+		background: white;
+		
+		font-family: "Ubuntu", sans-serif;
+		font-size: 105%;
+		line-height: 145%;
+		color: white;
+		
+		.code {
+			
+			font-family: "Source Code Pro", sans-serif;
+			background: $strawberry-wine;
+			padding: $standard-padding;
+			
+		}
+		
+		span.inlineTag {
+			
+			display: inline;
+			font-family: "Source Code Pro", sans-serif;
+			
+		}
+		
+		.highlightTerm {
+			
+			display: inline;
+			background: $red-wine;
+			color: white;
+			padding: $standard-padding / 4 $standard-padding / 2;
+			
+		}
+		
+		.toast {
+			
+			background: black;
+			
+		}
+		
+	}
+	
+}
+
+//.zone-body dh-zone-example {
+//
+//	margin: ($standard-margin / 2) 0;
+//
+//}
+//
+//.zone-body dh-zone-example:first-child {
+//
+//	margin-top: 0;
+//
+//}
+//
+//.zone-body dh-zone-example:last-child {
+//
+//	margin-bottom: 0;
+//
+//}
+//
+//.zone-body dh-zone-example:only-child {
+//
+//	margin: 0;
+//
+//}
+//
+//dh-zone-example {
+//
+//	background: $cherry-wine;
+//	padding: $standard-padding;
+//	border: solid ($standard-border-size / 2) black;
+//
+//}
+//
+//dh-zone-example >div {
+//
+//	@include text-spacer;
+//
+//	input.sentence-input {
+//
+//		height: 40px;
+//		margin: $standard-margin 0;
+//		padding: 0 $standard-padding;
+//		outline: none;
+//
+//	}
+//
+//	hr {
+//
+//		border: inset $standard-border-size / 4 $red-wine;
+//
+//	}
+//
+//}
+//
+//dh-zone-note {
+//
+//	display: block;
+//	padding: $standard-padding;
+//	background: $strawberry-wine;
+//	color: black;
+//	border: solid ($standard-border-size / 2) black;
+//
+//}
+//
+//dh-zone-note >div {
+//
+//	@include text-spacer;
+//
+//}
+//
+//
+//dh-zone-example dh-zone-note:nth-child(n) {
+//
+//	margin: $standard-margin 0;
+//
+//}
+//
+//dh-zone-example dh-zone-note:first-child {
+//
+//	margin: 0 0 $standard-margin;
+//
+//}
+//
+//dh-zone-example dh-zone-note:last-child {
+//
+//	margin: $standard-margin 0 0;
+//
+//}
+//
+//dh-zone-example dh-zone-note:only-child {
+//
+//	margin: 0;
+//
+//}
+//
+//
+//dh-zone-warning {
+//
+//	display: block;
+//	padding: $standard-padding;
+//	background: white;
+//	border: solid ($standard-border-size / 2) black;
+//	color: black;
+//
+//}
+//
+//dh-zone-warning >div {
+//
+//	@include text-spacer;
+//
+//}
+//
+//dh-zone-example dh-zone-warning:nth-child(n) {
+//
+//	margin: $standard-margin 0;
+//
+//}
+//
+//dh-zone-example dh-zone-warning:first-child {
+//
+//	margin: 0 0 $standard-margin;
+//
+//}
+//
+//dh-zone-example dh-zone-warning:last-child {
+//
+//	margin: $standard-margin 0 0;
+//
+//}
+//
+//dh-zone-example dh-zone-warning:only-child {
+//
+//	margin: 0;
+//
+//}
+
+dh-zone-example >div {
+
+	margin-top: $standard-margin;
+	background: red;
+	
+	background: $cherry-wine;
+	padding: $standard-padding;
+	border: solid ($standard-border-size / 2) black;
+
+}
+
+dh-zone-note {
+
+	display: block;
+	padding: $standard-padding;
+	background: $strawberry-wine;
+	color: black;
+	border: solid ($standard-border-size / 2) black;
+
+}
+
+dh-zone-warning {
+
+	display: block;
+	padding: $standard-padding;
+	background: white;
+	border: solid ($standard-border-size / 2) black;
+	color: black;
+
+}
+
+dh-zone-example >div:first-child {
+	
+	margin-top: $standard-margin;
+
+}
+
+dh-zone-example >div:last-child {
+
+	margin-bottom: 0;
+
+}
+
+dh-zone-example >div:only-child {
+	
+	margin-top: $standard-margin;
+
+}
+
+
+dh-zone-example >div {
+
+	@include text-spacer;
+
+	input.sentence-input {
+
+		height: 40px;
+		margin: $standard-margin 0;
+		padding: 0 $standard-padding;
+		outline: none;
+
+	}
+
+	hr {
+
+		border: inset $standard-border-size / 4 $red-wine;
+
+	}
+
+}
+
+
+dh-zone-note >div {
+
+	@include text-spacer;
+
+}
+
+
+dh-zone-example dh-zone-note:nth-child(n) {
+
+	margin: $standard-margin 0;
+
+}
+
+dh-zone-example dh-zone-note:first-child {
+
+	margin: 0 0 $standard-margin;
+
+}
+
+dh-zone-example dh-zone-note:last-child {
+
+	margin: $standard-margin 0 0;
+
+}
+
+dh-zone-example dh-zone-note:only-child {
+
+	margin: 0;
+
+}
+
+
+dh-zone-warning >div {
+
+	@include text-spacer;
+
+}
+
+dh-zone-example dh-zone-warning:nth-child(n) {
+
+	margin: $standard-margin 0;
+
+}
+
+dh-zone-example dh-zone-warning:first-child {
+
+	margin: 0 0 $standard-margin;
+
+}
+
+dh-zone-example dh-zone-warning:last-child {
+
+	margin: $standard-margin 0 0;
+
+}
+
+dh-zone-example dh-zone-warning:only-child {
+
+	margin: 0;
+
+}

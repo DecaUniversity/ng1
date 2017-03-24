@@ -1,0 +1,47 @@
+@import "../constants";
+
+.io-bar {
+	display: flex;
+	align-items: center;
+	
+	height: 40px;
+	margin: $standard-margin 0;
+	padding: 0;
+	
+	background: transparent;
+	
+	button {
+		
+		background: $red-wine;
+		color: white;
+		height: 100%;
+		
+		padding: 0 $standard-padding;
+		outline: none;
+		
+	}
+	
+	button:active {
+		background: white;
+		color: $red-wine;
+		box-shadow: 5px 5px black;
+	}
+	
+	input {
+		
+		height: 100%;
+		padding: 0 $standard-padding;
+		
+		color: black;
+		background: white;
+		outline: none;
+	}
+	
+	* {
+		
+		margin: 0;
+		margin-right: 10px;
+		
+	}
+
+}

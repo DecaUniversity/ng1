@@ -1,0 +1,61 @@
+@import "../constants";
+
+.tab-bar {
+
+	>ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0 0 $standard-padding;
+		overflow: hidden;
+		background-color: $red-wine;
+
+		li {
+			display: block;
+			float: left;
+			background: $red-wine;
+			color: white;
+			border-right: $standard-border-size solid $red-wine;
+		}
+
+		li:first-child {
+			border-left: $standard-border-size solid $red-wine;
+		}
+
+		li:last-child {
+			border-right: $standard-border-size solid $red-wine;
+		}
+
+		li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-family: $space-mono;
+
+		}
+
+		li a:hover {
+			background: $cherry-wine;
+			color: white;
+		}
+
+		li.activeTab {
+			background: white;
+			color: $red-wine;
+
+			a {
+				color: $red-wine;
+			}
+
+			a:hover {
+				background: white;
+				color: $red-wine;
+			}
+
+		}
+
+	}
+}
+
+
