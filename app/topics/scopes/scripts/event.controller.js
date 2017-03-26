@@ -6,8 +6,8 @@ angular.module("scopeExample")
 		$scope.count = 0;
 		$scope.$on("MyEvent", function () {
 			
-			$scope.count++;
+			$scope.count += 1;
 			
-		})
+		});
 		
 	}]);
