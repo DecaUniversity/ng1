@@ -19,7 +19,15 @@ angular.module("main")
 			"topics/directives/partials/transclusion.html",
 			"topics/directives/partials/event-listener.html"
 		];
-	
+		
+		$scope.scopePanes = [
+			"topics/scopes/partials/definition.html",
+			"topics/scopes/partials/data-model.html",
+			"topics/scopes/partials/hierarchies.html",
+			"topics/scopes/partials/dom-retrieval.html",
+			"topics/scopes/partials/event-propagation.html"
+		];
+		
 		$scope.name = "Caroline";
 		
 		$scope.mainHero = "Superman";
