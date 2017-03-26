@@ -1,0 +1,40 @@
+<dh-sub-pane title="dom retrieval">
+	
+	<dh-zone-example>
+		<dh-zone-note>
+			<p>
+				Scope are attached to the DOM as $scope data property and cam be retrieved for debugging purposed.
+			</p>
+			
+			<p>
+				The location where the root scope is attached to the DOM is defined by the location of the ng-app directive.
+			</p>
+			
+			<p>
+				To examine the scope in the debugger:
+			</p>
+			
+			<ol>
+				<li>
+					Inspect the desired element.
+				</li>
+				<li>
+					The debugger allows you to access the currently selected element in the console as $0 variable.
+				</li>
+				<li>
+					To retrieve the associated scope in console, execute: angular.element($0).scope()
+				</li>
+			</ol>
+			
+		</dh-zone-note>
+		
+		<dh-zone-warning>
+			<p>The scope() function is only available when $compiler.debugInfoEnabled() is true (which is the default)</p>
+			<p>
+				However, for performance improvement, debugInfoEnabled() should be set to false.
+			</p>
+		</dh-zone-warning>
+		
+	</dh-zone-example>
+	
+</dh-sub-pane>
