@@ -1,0 +1,33 @@
+<dh-sub-pane title="event propagation">
+	
+	<dh-zone-example>
+		
+		<dh-zone-note>
+			<p>
+				Scopes can propagate events in similar fashion to DOM events. The event can be broadcasted to the scope children or emitted to scope parents.
+			</p>
+		</dh-zone-note>
+		
+		<div ng-controller="EventController">
+			Root scope <span class="inlineTag">MyEvent</span> count: {{count}}
+			
+			<ul>
+				<li ng-repeat="i in [1]" ng-controller="EventController">
+					<div class="io-bar">
+						<button ng-click="$emit('MyEvent')">$emit("MyEvent")</button>
+						<button ng-click="$broadcast('MyEvent')">$broadcast("MyEvent")</button>
+					</div>
+					<span>Middle scope <span class="inlineTag">MyEvent</span> count: {{count}}</span>
+					<ul>
+						<li ng-repeat="item in [1, 2]" ng-controller="EventController">
+							Leaf scope <span class="inlineTag">MyEvent</span> count: {{count}}
+						</li>
+					</ul>
+				</li>
+			</ul>
+			
+		</div>
+		
+	</dh-zone-example>
+	
+</dh-sub-pane>

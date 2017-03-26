@@ -1,0 +1,32 @@
+<dh-sub-pane title="hierarchies">
+	
+	<dh-zone-example>
+		
+		<p>
+			Each Angular expression has exactly one root scope, but any number of child scopes.
+		</p>
+		
+		<p>
+			Each expression is evaluated against a context (the scope). Such scope is first looked at in the given element where the property is found. If there is no context/scope, then the parent scope of that element is looked at and so on - until the root scope is reached. This is referred as prototypical inheritance in JavaScript.
+		</p>
+		
+		<div class="show-scope">
+			
+			<div ng-controller="GreetController">
+				<p>Hello, {{name}}</p>
+			</div>
+			
+			<div ng-controller="ListController">
+				<ol>
+					<li ng-repeat="name in names">
+						<span>{{name}} from {{department}}</span>
+						<span>Favorite color: {{color}} None... Because there's no scope that has the property "color"!</span>
+					</li>
+				</ol>
+			</div>
+			
+		</div>
+		
+	</dh-zone-example>
+	
+</dh-sub-pane>
