@@ -1,0 +1,16 @@
+@import "../../../common/styles/constants";
+
+.show-scope.ng-scope,
+.show-scope .ng-scope {
+	
+	border: $standard-border-size / 2 solid white;
+	margin: $standard-margin;
+	padding: $standard-padding;
+	
+}
+
+.show-scope .ng-scope {
+	
+	background: black;
+	
+}
