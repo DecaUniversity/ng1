@@ -9,7 +9,8 @@ angular.module("main")
 			"topics/scopes/scopes-pane.html",
 			"topics/directives/directives-pane.html",
 			"topics/components/components-pane.html",
-			"topics/animations/animations-pane.html"
+			"topics/animations/animations-pane.html",
+			"topics/modules/modules-pane.html"
 		];
 		
 		$scope.directivePanes = [
@@ -26,6 +27,13 @@ angular.module("main")
 			"topics/scopes/partials/hierarchies.html",
 			"topics/scopes/partials/dom-retrieval.html",
 			"topics/scopes/partials/event-propagation.html"
+		];
+		
+		$scope.modulePanes = [
+			"topics/modules/partials/basics.html",
+			"topics/modules/partials/recommended-setup.html",
+			"topics/modules/partials/loading-deps.html",
+			"topics/modules/partials/configuration.html"
 		];
 		
 		$scope.name = "Caroline";
