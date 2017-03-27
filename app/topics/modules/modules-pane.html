@@ -1,0 +1,13 @@
+<dh-pane title=".modules()">
+	
+	<dh-zone zone-label="Modules">
+		
+		<dh-sub-tabs default-tab="2">
+			<ng-include ng-repeat="pane in modulePanes track by $index" src="pane">
+				
+			</ng-include>
+		</dh-sub-tabs>
+		
+	</dh-zone>
+	
+</dh-pane>

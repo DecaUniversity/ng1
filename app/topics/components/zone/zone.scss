@@ -281,6 +281,18 @@ dh-zone-example >div {
 	background: $cherry-wine;
 	padding: $standard-padding;
 	border: solid ($standard-border-size / 2) black;
+	
+	ul {
+		
+		list-style: square inside;
+		
+		li {
+			
+			margin-bottom: $standard-margin / 2;
+			
+		}
+		
+	}
 
 }
 
